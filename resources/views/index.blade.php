@@ -631,7 +631,7 @@
 
         <div class="row" data-aos="fade-left">
 
-          <div class="col-lg-3 col-md-6">
+{{--           <div class="col-lg-3 col-md-6">
             <div class="box" data-aos="zoom-in" data-aos-delay="100">
               <h3>Free</h3>
               <h4><sup>$</sup>0<span> / month</span></h4>
@@ -646,7 +646,7 @@
                 <a href="#" class="btn-buy">Buy Now</a>
               </div>
             </div>
-          </div>
+          </div> --}}
 
           <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
             <div class="box featured" data-aos="zoom-in" data-aos-delay="200">
@@ -660,12 +660,12 @@
                 <li class="na">Massa ultricies mi</li>
               </ul>
               <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
+                <div id="paypal-button-container"></div> {{-- botonpaypal --}}
               </div>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+          {{-- <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
             <div class="box" data-aos="zoom-in" data-aos-delay="300">
               <h3>Developer</h3>
               <h4><sup>$</sup>29<span> / month</span></h4>
@@ -698,7 +698,7 @@
                 <a href="#" class="btn-buy">Buy Now</a>
               </div>
             </div>
-          </div>
+          </div> --}}
 
         </div>
 
@@ -924,6 +924,40 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script src="https://www.paypal.com/sdk/js?client-id=AeBz1Wsffhc-Hy6u3eMy3ccFs6KR5X9HqnjbgQ1hwab60UVTamBA05BzYdbPMmauDqTmDMpcjIj7ZuSX&enable-funding=venmo&currency=USD&disable-funding=credit,card" data-sdk-integration-source="button-factory"></script>
+
+<script>
+  function initPayPalButton() {
+    paypal.Buttons({
+      style: {
+        color:  'blue',
+            shape:  'pill',
+            label:  'pay',
+            height: 40    
+      },
+
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{"amount":{"currency_code":"USD","value":20}}]
+        });
+      },
+
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(orderData) {
+              /* alert('AAAAAAAAAAAAAAAAAAAAA'); */
+              /* window.location.href = base_path + '/registrarse'; */ 
+              setTimeout( function() { window.location.href = "http://127.0.0.1:8000/registrarse"; }, 3000 );       
+        });
+      },
+
+      onError: function(err) {
+        console.log(err);
+      }
+    }).render('#paypal-button-container');
+  }
+  initPayPalButton();
+</script>
 
 </body>
 

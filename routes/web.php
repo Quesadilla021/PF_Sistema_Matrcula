@@ -19,8 +19,13 @@ Route::get('/', function () {
 });
 
 Route::get('/admin', function () {
-    return view('admin');
+    return view('Admin Institucion.admin');
+})->name('indexAdmin');
+
+Route::get('/registrarse', function () {
+    return view('registroCuenta');
 });
+
 
 Auth::routes();
 
