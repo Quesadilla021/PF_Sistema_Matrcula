@@ -56,7 +56,8 @@
           <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
           <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          
+{{--           <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -72,11 +73,16 @@
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
             </ul>
-          </li>
+          </li> --}}
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+
+      <div class="text-center text-lg-start">
+        <a href="{{route('loginn')}}" class="btn btn-outline-primary btn-lg text-light">Login</a>
+      </div>
 
     </div>
   </header><!-- End Header -->
@@ -91,7 +97,7 @@
             <h1>Build Your Landing Page With <span>Bootstlander</span></h1>
             <h2>We are team of talented designers making websites with Bootstrap</h2>
             <div class="text-center text-lg-start">
-              <a href="#about" class="btn-get-started scrollto">Get Started</a>
+              <a href="#pricing" class="btn-get-started scrollto">Get Started</a>
             </div>
           </div>
         </div>
@@ -631,24 +637,11 @@
 
         <div class="row" data-aos="fade-left">
 
-{{--           <div class="col-lg-3 col-md-6">
-            <div class="box" data-aos="zoom-in" data-aos-delay="100">
-              <h3>Free</h3>
-              <h4><sup>$</sup>0<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li class="na">Pharetra massa</li>
-                <li class="na">Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div> --}}
+          <div class="col-lg-4 col-md-6">
 
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
             <div class="box featured" data-aos="zoom-in" data-aos-delay="200">
               <h3>Business</h3>
               <h4><sup>$</sup>19<span> / month</span></h4>
