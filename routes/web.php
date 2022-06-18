@@ -18,9 +18,22 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/admin', function () {
-    return view('admin');
+Route::get('/adminInstitucion', function () {
+    return view('Admin Institucion.admin');
+})->name('indexAdmin');
+
+Route::get('/registrarse', function () {
+    return view('registroCuenta');
 });
+
+Route::get('/loginC', function () {
+    return view('loginCuenta');
+})->name('loginn');
+
+Route::get('/admin_Administrador', function () {
+    return view('Admin Administrador.admin');
+})->name('indexAdmin_A');
+
 
 Auth::routes();
 
