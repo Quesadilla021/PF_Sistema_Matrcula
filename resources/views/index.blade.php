@@ -81,7 +81,7 @@
       </nav><!-- .navbar -->
 
       <div class="text-center text-lg-start">
-        <a href="{{route('loginn')}}" class="btn btn-outline-primary btn-lg text-light">Login</a>
+        <a href="{{route('home')}}" class="btn btn-outline-primary btn-lg text-light">Login</a>
       </div>
 
     </div>

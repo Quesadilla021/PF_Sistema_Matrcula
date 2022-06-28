@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MatriculaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,12 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/adminInstitucion', function () {
+/* Route::get('/adminInstitucion', function () {
     return view('Admin Institucion.admin');
-})->name('indexAdmin');
+})->name('indexAdmin'); */
+
+Route::get('/adminInstitucion', [MatriculaController::class, 'show'])->name('indexAdmin');
+
 
 Route::get('/registrarse', function () {
     return view('registroCuenta');
