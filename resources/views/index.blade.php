@@ -82,7 +82,7 @@
       </nav><!-- .navbar -->
 
       <div class="text-center text-lg-start">
-        <a href="{{route('loginn')}}" class="btn btn-outline-primary btn-lg text-light">Login</a>
+        <a href="{{route('home')}}" class="btn btn-outline-primary btn-lg text-light">Login</a>
       </div>
 
     </div>
@@ -941,7 +941,7 @@
         return actions.order.capture().then(function(orderData) {
               /* alert('AAAAAAAAAAAAAAAAAAAAA'); */
               /* window.location.href = base_path + '/registrarse'; */ 
-              setTimeout( function() { window.location.href = "http://127.0.0.1:8000/registrarse"; }, 3000 );       
+              setTimeout( function() { window.location.href = "http://127.0.0.1:8000/register"; }, 3000 );       
         });
       },
 

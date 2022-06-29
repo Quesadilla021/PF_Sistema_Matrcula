@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -7,6 +7,10 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
+                <div class="container">
+                    <h3>NSdoinsdaifndsoifn</h3>
+                </div>
+
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -14,10 +18,10 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('SIUUUUUUUUUUUUU') }}
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
