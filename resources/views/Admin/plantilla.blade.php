@@ -11,19 +11,29 @@
     <meta name="description"
         content="Flexy Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Flexy Admin Lite Template by WrapPixel</title>
+    <title>Admin Administrador</title>
+    
     <link rel="canonical" href="https://www.wrappixel.com/templates/Flexy-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
     <!-- Custom CSS -->
+    <link href="../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <link href="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link href="../dist/css/style.min.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <link href="dist/css/style.css" rel="stylesheet">
+    
+    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href=https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
+
+@php //Saber cual es el rol del cual el usuario ingreso
+        $admin = false;
+    if (Auth::user()->rol == 'Admin') {
+        $admin = true;
+    }
+@endphp
 
 <body>
     <!-- ============================================================== -->
@@ -43,8 +53,8 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar" data-navbarbg="skin6">
-            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+        <header class="topbar verde" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light verde">
                 <div class="navbar-header" data-logobg="skin6">
                     <!-- ============================================================== -->
                     <!-- Logo -->
@@ -54,17 +64,18 @@
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                            <img src="../assets/images/am.fw.png" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                         
+                           <!-- <img src="../assets/images/logo-light-icon.png" alt="homepage" class="light-logo" /> -->
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
-                            <!-- dark Logo text -->
+                            <!-- dark Logo text 
                             <img src="../assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo text -->
-                            <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                            Light Logo text -->
+                            <!-- <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" /> -->
                         </span>
                     </a>
                     <!-- ============================================================== -->
@@ -72,7 +83,7 @@
                     <!-- ============================================================== -->
                     <!-- This is for the sidebar toggle which is visible on mobile only -->
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
-                            class="ti-menu ti-close"></i></a>
+                            class="mdi mdi-menu"></i></a>
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Logo -->
@@ -85,13 +96,7 @@
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
-                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark"
-                                href="javascript:void(0)"><i class="mdi mdi-magnify me-1"></i> <span class="font-16">Search</span></a>
-                            <form class="app-search position-absolute">
-                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a
-                                    class="srh-btn"><i class="mdi mdi-window-close"></i></a>
-                            </form>
-                        </li>
+
                     </ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -101,17 +106,27 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../assets/images/users/profile.png" alt="user" class="rounded-circle" width="31">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
-                                    My Profile</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i>
-                                    My Balance</a>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>
-                                    Inbox</a>
-                            </ul>
+                            <div class="d-flex">
+                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="../assets/images/users/profile.png" alt="user" class="rounded-circle" width="31">
+                                    {{ Auth::user()->name }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
+                                        My Profile</a>
+                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i>
+                                        My Balance</a>
+                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>
+                                        Inbox</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Cerrar Sesion') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                </ul>
+                            </div> 
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -131,93 +146,37 @@
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="pages-profile.html" aria-expanded="false"><i
-                                    class="mdi mdi-account-network"></i><span class="hide-menu">Profile</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="table-basic.html" aria-expanded="false"><i class="mdi mdi-border-all"></i><span
-                                    class="hide-menu">Table</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="icon-material.html" aria-expanded="false"><i class="mdi mdi-face"></i><span
-                                    class="hide-menu">Icon</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="starter-kit.html" aria-expanded="false"><i class="mdi mdi-file"></i><span
-                                    class="hide-menu">Blank</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="error-404.html" aria-expanded="false"><i class="mdi mdi-alert-outline"></i><span
-                                    class="hide-menu">404</span></a></li>
-                        <li class="text-center p-40 upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/flexy-bootstrap-admin-template/"
-                                class="btn d-block w-100 btn-danger text-white" target="_blank">Upgrade to Pro</a>
-                        </li>
-                    </ul>
+                    @if ($admin)
+                        @include('Admin.parts.barraAdmin')
+                    @else
+                        @include('Admin.parts.barraInstitucion')
+                    @endif
 
-                </nav>
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
         </aside>
+        
+
+        @if ($admin)
+            @include('Admin.administrador.admin')
+        @else
+            @include('Admin.institucion.admin')
+        @endif
+
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <div class="page-breadcrumb">
-                <div class="row align-items-center">
-                    <div class="col-6">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb mb-0 d-flex align-items-center">
-                              <li class="breadcrumb-item"><a href="index.html" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>
-                              <li class="breadcrumb-item active" aria-current="page">Starter Page</li>
-                            </ol>
-                          </nav>
-                        <h1 class="mb-0 fw-bold">Starter Page</h1> 
-                    </div>
-                    <div class="col-6">
-                        <div class="text-end upgrade-btn">
-                            <a href="https://www.wrappixel.com/templates/flexy-bootstrap-admin-template/" class="btn btn-primary text-white"
-                                target="_blank">Upgrade to Pro</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
+        
+
+
+
+
                 <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                This is some text within a card block.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
+                <!-- Recent comment and chats -->
                 <!-- ============================================================== -->
             </div>
             <!-- ============================================================== -->
@@ -254,6 +213,24 @@
     <script src="../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="../dist/js/custom.js"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src="../assets/libs/chartist/dist/chartist.min.js"></script>
+    <script src="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="../dist/js/pages/dashboards/dashboard1.js"></script>
+
+    <script>
+
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
 </body>
 
 </html>
