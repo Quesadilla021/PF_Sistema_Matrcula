@@ -53,7 +53,7 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar verde" data-navbarbg="skin6">
+        <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar top-navbar navbar-expand-md navbar-light verde">
                 <div class="navbar-header" data-logobg="skin6">
                     <!-- ============================================================== -->
@@ -108,7 +108,7 @@
                         <li class="nav-item dropdown">
                             <div class="d-flex">
                                 <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../assets/images/users/profile.png" alt="user" class="rounded-circle" width="31">
+                                    <img src="../assets/images/users/escuela.png" alt="user" class="rounded-circle" width="31">
                                     {{ Auth::user()->name }}
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
