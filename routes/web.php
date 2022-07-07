@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MatriculaController;
+use App\Http\Controllers\EstudianteController;
 
 
 /*
@@ -23,6 +24,7 @@ Route::get('/', function () {
 /* Route::get('/adminInstitucion', function () {
     return view('Admin Institucion.admin');
 })->name('indexAdmin'); */
+Route::get('/estudiantes',[EstudianteController::class, 'index'])->name('estudiantes');
 
 Route::get('/adminInstitucion', [MatriculaController::class, 'show'])->name('indexAdmin');
 
@@ -39,6 +41,11 @@ Route::get('/admin', function () {
     return view('Admin.admin');
 })->name('indexAdmin_A');
 
+
+
+
+
+//C:\Users\yansi\OneDrive\Documentos\GitHub\PF_Sistema_Matrcula\resources\views\Admin\institucion\adm_institucion.blade.php
 
 Auth::routes();
 

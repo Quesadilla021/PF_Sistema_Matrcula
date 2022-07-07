@@ -13,18 +13,9 @@
     <meta name="robots" content="noindex,nofollow">
     <title>Admin Administrador</title>
     
-    <link rel="canonical" href="https://www.wrappixel.com/templates/Flexy-admin-lite/" />
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <!-- Custom CSS -->
-    <link href="../assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
-    <link href="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="../dist/css/style.min.css" rel="stylesheet">
-    <link href="dist/css/style.css" rel="stylesheet">
-    
-    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
-    <link href=https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+   
+    @include('Admin.parts.partscss')
 
 </head>
 
@@ -56,6 +47,8 @@
         <header class="topbar" data-navbarbg="skin6">
             <nav class="navbar top-navbar navbar-expand-md navbar-light verde">
                 <div class="navbar-header" data-logobg="skin6">
+
+              
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
@@ -142,6 +135,8 @@
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
         <aside class="left-sidebar" data-sidebarbg="skin6">
+      
+      
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
@@ -203,34 +198,9 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../dist/js/app-style-switcher.js"></script>
-    <!--Wave Effects -->
-    <script src="../dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="../dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="../dist/js/custom.js"></script>
-    <!--This page JavaScript -->
-    <!--chartis chart-->
-    <script src="../assets/libs/chartist/dist/chartist.min.js"></script>
-    <script src="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="../dist/js/pages/dashboards/dashboard1.js"></script>
 
-    <script>
-
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
-
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-
+    @include('Admin.parts.partsjs')
+  
 </body>
 
 </html>

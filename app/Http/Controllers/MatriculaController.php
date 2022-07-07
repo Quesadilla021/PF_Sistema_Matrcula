@@ -16,4 +16,6 @@ class MatriculaController extends Controller
         return view('Admin Institucion.admin', compact('suscribciones'));
 
     }
+
+
 }
