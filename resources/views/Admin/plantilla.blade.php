@@ -11,10 +11,8 @@
     <meta name="description"
         content="Flexy Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
-    <title>Admin Administrador</title>
+    <title>@yield('titulo')</title>
     
-
-   
     @include('Admin.parts.partscss')
 
 </head>
@@ -52,7 +50,7 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{route('home')}}">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -86,18 +84,12 @@
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-start me-auto">
-                        <!-- ============================================================== -->
-                        <!-- Search -->
-                        <!-- ============================================================== -->
+
 
                     </ul>
-                    <!-- ============================================================== -->
-                    <!-- Right side toggle and nav items -->
-                    <!-- ============================================================== -->
+
                     <ul class="navbar-nav float-end">
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
+
                         <li class="nav-item dropdown">
                             <div class="d-flex">
                                 <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -121,19 +113,12 @@
                                 </ul>
                             </div> 
                         </li>
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
+
                     </ul>
                 </div>
             </nav>
         </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
+
         <aside class="left-sidebar" data-sidebarbg="skin6">
       
       
@@ -147,57 +132,72 @@
                         @include('Admin.parts.barraInstitucion')
                     @endif
 
-                <!-- End Sidebar navigation -->
             </div>
-            <!-- End Sidebar scroll-->
         </aside>
-        
+                <!-- ============================================================== -->
+                    <!-- Contenido de la plantilla -->
+                <!-- ============================================================== -->
 
-        @if ($admin)
-            @include('Admin.administrador.admin')
-        @else
-            @include('Admin.institucion.admin')
+                <div class="page-wrapper">
+
+                    <div class="page-breadcrumb">
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <h1 class="mb-0 fw-bold">@yield('contenido_titulo')</h1> 
+                            </div>   
+                        </div>
+                    </div>
+
+        @if ($admin){{--  ES ADMIN --}}
+            
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- column -->
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+            
+                                    @yield('contenidoAdministrador')
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>      
+                  </div>
+
+        @else {{-- NO ES ADMIN --}}
+
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+        
+                                @yield('contenidoInstitucion')
+
+                            </div>
+                        </div>
+                    </div>
+                </div>      
+              </div>
+
         @endif
-
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        
+    </div>
 
 
 
-
-                <!-- ============================================================== -->
-                <!-- Recent comment and chats -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
+
             <footer class="footer text-center">
                 All Rights Reserved by Flexy Admin. Designed and Developed by <a
                     href="https://www.wrappixel.com">WrapPixel</a>.
             </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
+
         </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
+
     </div>
-    <!-- ============================================================== -->
-    <!-- End Wrapper -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
+
 
     @include('Admin.parts.partsjs')
   

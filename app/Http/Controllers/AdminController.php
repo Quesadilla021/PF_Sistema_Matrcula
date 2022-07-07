@@ -10,6 +10,8 @@ class AdminController extends Controller
 {
      public function show()
     {
+        $usuarios = User::all();
 
+        return view('Admin.administrador.usuarios', compact('usuarios'));
     } 
 }

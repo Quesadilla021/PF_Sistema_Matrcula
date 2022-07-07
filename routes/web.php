@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MatriculaController;
@@ -25,6 +26,8 @@ Route::get('/', function () {
     return view('Admin Institucion.admin');
 })->name('indexAdmin'); */
 Route::get('/estudiantes',[EstudianteController::class, 'index'])->name('estudiantes');
+
+Route::get('/usuarios',[AdminController::class, 'show'])->name('usuariosRegistrados');
 
 Route::get('/adminInstitucion', [MatriculaController::class, 'show'])->name('indexAdmin');
 

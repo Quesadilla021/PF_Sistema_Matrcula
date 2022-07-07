@@ -1,13 +1,16 @@
-@extends('Admin.institucion.admin')
-@include('Admin.parts.partscss')
+@extends('Admin.plantilla')
 
-@section('content')
+@section('contenido_titulo')
+    Estudiantes
+@endsection
 
+@section('titulo')
+    Estudiantes
+@endsection
 
-<h3>jajajajajajj</h3>
+@section('contenidoInstitucion')
 
-
-
+    <h1>AJAJJAJAJAJAJAJ</h1>
 
 @endsection
-@include('Admin.parts.partsjs')
+

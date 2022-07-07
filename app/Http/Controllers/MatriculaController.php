@@ -9,13 +9,13 @@ use App\Models\Suscripcione;
 
 class MatriculaController extends Controller
 {
-    public function show()
+/*     public function show()
     {
         $suscribciones = Suscripcione::all();
 
         return view('Admin Institucion.admin', compact('suscribciones'));
 
-    }
+    } */
 
 
 }
