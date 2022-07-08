@@ -21,7 +21,9 @@
                 <th>Proximo Pago</th>
             </tr>
         </thead>
+        
         <tbody>
+
             @foreach ($usuarios as $item)
             <tr>
                 <td>{{$item->name}}</td>

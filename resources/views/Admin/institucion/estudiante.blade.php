@@ -11,6 +11,12 @@
 @section('contenidoInstitucion')
 
     <h1>AJAJJAJAJAJAJAJ</h1>
+    <h1>AJAJJAJAJAJAJAJ</h1>
+    <h1>AJAJJAJAJAJAJAJ</h1>
+    <h1>AJAJJAJAJAJAJAJ</h1>
+    <h1>AJAJJAJAJAJAJAJ</h1>
+    <h1>AJAJJAJAJAJAJAJ</h1>
+    <h1>AJAJJAJAJAJAJAJ</h1>
 
 @endsection
 
