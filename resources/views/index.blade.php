@@ -37,7 +37,6 @@
 </head>
 
 <body>
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center header-transparent">
     <div class="container d-flex align-items-center justify-content-between">
@@ -658,42 +657,6 @@
               </div>
             </div>
           </div>
-
-          {{-- <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="300">
-              <h3>Developer</h3>
-              <h4><sup>$</sup>29<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
-            <div class="box" data-aos="zoom-in" data-aos-delay="400">
-              <span class="advanced">Advanced</span>
-              <h3>Ultimate</h3>
-              <h4><sup>$</sup>49<span> / month</span></h4>
-              <ul>
-                <li>Aida dere</li>
-                <li>Nec feugiat nisl</li>
-                <li>Nulla at volutpat dola</li>
-                <li>Pharetra massa</li>
-                <li>Massa ultricies mi</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="#" class="btn-buy">Buy Now</a>
-              </div>
-            </div>
-          </div> --}}
-
         </div>
 
       </div>
@@ -818,7 +781,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button onclick="mostrar()" type="submit">Send Message</button></div>
             </form>
 
           </div>
@@ -896,19 +859,57 @@
         &copy; Copyright <strong><span>Bootslander</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/ -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
+
+{{--     <button onclick="mostrar()">Prueba</button> --}}
+
+
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>    
+
+  <script type="text/javascript">
+  
+      function mostrar() {
+          
+        let timerInterval
+          Swal.fire({
+            title: 'El pago se realizco correctamente',
+            html: 'Sera redirigido para la creacion de la cuenta',
+            icon: 'success',
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading()
+              const b = Swal.getHtmlContainer().querySelector('b')
+              timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft()
+              }, 100)
+            },
+            willClose: () => {
+              clearInterval(timerInterval)
+            }
+          }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+              window.location.href = "http://127.0.0.1:8000/register";
+            }
+          })
+      }
+  
+  </script>
+
+
+
+{{-- function() { window.location.href = "http://127.0.0.1:8000/register"; } --}}
+
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -941,7 +942,7 @@
         return actions.order.capture().then(function(orderData) {
               /* alert('AAAAAAAAAAAAAAAAAAAAA'); */
               /* window.location.href = base_path + '/registrarse'; */ 
-              setTimeout( function() { window.location.href = "http://127.0.0.1:8000/register"; }, 3000 );       
+              setTimeout(mostrar(), 500 );       
         });
       },
 
@@ -952,6 +953,8 @@
   }
   initPayPalButton();
 </script>
+
+
 
 </body>
 

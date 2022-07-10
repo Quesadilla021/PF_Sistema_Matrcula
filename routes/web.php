@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\EstudianteController;
-
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +53,6 @@ Route::get('/admin', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/send-mail', [MailController::class, 'sendEmail'])->name('EnviarEmail');
+

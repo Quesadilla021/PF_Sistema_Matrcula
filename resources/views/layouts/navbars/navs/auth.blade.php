@@ -35,7 +35,7 @@
                         <i class="ni ni-single-02"></i>
                         <span>{{ __('My profile') }}</span>
                     </a> --}}
-                    <a href="#" class="dropdown-item">
+ {{--                    <a href="#" class="dropdown-item">
                         <i class="ni ni-settings-gear-65"></i>
                         <span>{{ __('Settings') }}</span>
                     </a>
@@ -52,7 +52,7 @@
                     document.getElementById('logout-form').submit();">
                         <i class="ni ni-user-run"></i>
                         <span>{{ __('Logout') }}</span>
-                    </a>
+                    </a> --}}
                 </div>
             </li>
         </ul>
