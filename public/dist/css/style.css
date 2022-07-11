@@ -366,6 +366,58 @@ body[data-theme="dark"] {
   body[data-theme="dark"] .ct-grid {
     stroke: #262d35; }
 
+
+#b_estudiante{
+border: 1px solid #199bfb; /*anchura, estilo y color borde*/
+padding: 10px; /*espacio alrededor texto*/
+background-color: #199bfb; /*color botón*/
+color: #ffffff; /*color texto*/
+text-decoration: none; /*decoración texto*/
+text-transform: uppercase; /*capitalización texto*/
+font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+border-radius: 15px;
+
+}
+
+#b_regresar{
+  border: 1px solid #247e00; /*anchura, estilo y color borde*/
+  padding: 10px; /*espacio alrededor texto*/
+  background-color: #247e00; /*color botón*/
+  color: #ffffff; /*color texto*/
+  text-decoration: none; /*decoración texto*/
+  text-transform: uppercase; /*capitalización texto*/
+  font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+  border-radius: 15px;
+  
+  }
+
+#id_estudiante{
+  margin-top: -35px;
+
+}
+
+#id_regresar{
+  margin-top: -35px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*!
  * Bootstrap v4.1.0 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors

@@ -2,6 +2,7 @@
 <html dir="ltr" lang="en">
 
 <head>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -189,10 +190,7 @@
 
             </div>
 
-            <footer class="footer text-center">
-                All Rights Reserved by Flexy Admin. Designed and Developed by <a
-                    href="https://www.wrappixel.com">WrapPixel</a>.
-            </footer>
+          
 
         </div>
 

@@ -25,7 +25,10 @@ Route::get('/', function () {
 /* Route::get('/adminInstitucion', function () {
     return view('Admin Institucion.admin');
 })->name('indexAdmin'); */
+
+
 Route::get('/estudiantes',[EstudianteController::class, 'index'])->name('estudiantes');
+Route::get('/insertar_estudiante',[EstudianteController::class, 'create'])->name('create_estudiantes');
 
 Route::get('/usuarios',[AdminController::class, 'show'])->name('usuariosRegistrados');
 

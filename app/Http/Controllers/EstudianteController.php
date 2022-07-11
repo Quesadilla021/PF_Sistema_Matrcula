@@ -26,7 +26,7 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.institucion.insertar_estudiante');
     }
 
     /**
@@ -37,7 +37,17 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $estudiante = new  Estudiante();
+        
+        $estudiante->cedula=$request->cedula;
+        $estudiante->nombre=$request->nombre;
+        $estudiante->apellidos=$request->apellidos;
+        $estudiante->telefono=$request->telefono;
+        $estudiante->enfermedad=$request->enfermedad;
+        $estudiante->medicamentos=$request->medicamentos;
+        $estudiante->save();
+
+        return redirect()->route('estudiantes.index');
     }
 
     /**
@@ -71,7 +81,17 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $estudiante =  Estudiante::find($id);
+
+        $estudiante->cedula=$request->cedula;
+        $estudiante->nombre=$request->nombre;
+        $estudiante->apellidos=$request->apellidos;
+        $estudiante->telefono=$request->telefono;
+        $estudiante->enfermedad=$request->enfermedad;
+        $estudiante->medicamentos=$request->medicamentos;
+        $estudiante->save();
+
+        return redirect()->route('estudiantes.index');
     }
 
     /**
@@ -82,6 +102,9 @@ class EstudianteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Estudiante::find($id);
+        $data->delete();
+
+        return back();
     }
 }
