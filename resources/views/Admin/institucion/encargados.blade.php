@@ -5,7 +5,7 @@
 @endsection
 
 @section('titulo')
-    Estudiantes
+    Encargados
 @endsection
 
 @section('contenidoInstitucion')
@@ -17,7 +17,7 @@
     
 <div id="id_estudiante">
 
- <a href="{{route('create_estudiantes')}}" id="b_estudiante">+ Nuevo Estudiante</a>
+ <a href="{{route('create_encargado')}}" id="b_estudiante">+ Nuevo Encargado</a>
 
 </div>
 
@@ -27,7 +27,7 @@
              <div class="card">
                 <div class="card-header">
     
-                    <h4 class="card-title">Estudiantes Registrados</h4>
+                    <h4 class="card-title">Encargados Registrados</h4>
                                       
                 </div>
     
@@ -42,8 +42,8 @@
                             <th>APELLIDOS</th>
                             <th>F_NACIMIENTO</th>
                             <th>TELEFONO</th>
-                            <th>ENFERMEDADES</th>
-                            <th>MEDICAMENTOS</th>
+                            <th>DIRECCION</th>
+                          
                             <th>OPCIONES</th>
                          
                         </tr>
@@ -52,7 +52,7 @@
                     <tbody>
                   
                         <tr>
-                            <td></td>
+                   
                             <td></td>
                             <td></td>
                             <td></td>
@@ -64,7 +64,7 @@
                             <td>
                                 <form action="" method="POST">
                                     @csrf
-                                    <a href="{{route('editar_estudiantes')}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
+                                    <a href="{{route('editar_encargados')}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
                                         <i class="fas fa-pencil-alt"></i></button></a>
     
                                               

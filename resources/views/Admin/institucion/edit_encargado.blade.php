@@ -12,7 +12,7 @@
 
 
 <div id="id_regresar">
-<a href="{{route('estudiantes')}}" id="b_regresar" >
+<a href="{{route('encargados')}}" id="b_regresar" >
 <i class="fas fa-arrow-circle-left"></i> Atrás</button></a>
 </div>
 <hr>
@@ -34,7 +34,7 @@
 <div class="card">
                     <div class="card-header">
 
-                        <h4 class="card-title">Editar Estudiantes</h4>
+                        <h4 class="card-title">Editar Encargado</h4>
                                     
                     </div>
 
@@ -49,9 +49,21 @@
                       class="form-group p-2 form-grid" method="POST">
                       @csrf
 
+                      <div class="form-inline col-mb-5 px-2 ">
+                          <label class="form-label mb-4" >Estudiante</label>
+                          
+                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
+                                <option selected>-Seleccione-</option>
+                                <option value="1">Yansineth Vargas Bustos</option>
+                                <option value="2">Ian Quesada Rojas</option>
+                                <option value="3">Gerald Ramirez Hernadez</option>
+                            </select>
+                       
+                      </div>
+
                       <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4 " >Cédula </label>
-                          <input type="text" class="form-control mb-4 ml-5" name="cedula" >
+                          <label class="form-label mb-4">Cedula  </label>
+                          <input type="text" class="form-control mb-3 ml-5" name="cedula" required>
                       </div>
 
                       <div class="form-inline col-mb-5 px-2">
@@ -71,30 +83,10 @@
                           </div>
 
                           <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4 " >Teléfono</label>
-                          <input type="text" class="form-control mb-4 ml-5" name="telefono" >
+                          <label class="form-label mb-4 " >Dirección</label>
+                            <textarea name="direccion" class="form-control mb-4 ml-5" cols="60" rows="3"></textarea>
                       </div>
                       
-
-                      <div class="form-inline col-mb-5 px-2 ">
-                          <label class="form-label mb-4 ">Enfermedades</label>
-                          <input type="text" class="form-control mb-4 ml-3" name="enfermedades">
-                         
-                          </div>
-
-                          <div class="form-inline col-mb-5 px-2 ">
-                          <label class="form-label mb-4" >Medicamentos</label>
-                          
-                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
-                                <option selected>-Seleccione-</option>
-                                <option value="1">Ninguno</option>
-                                <option value="2">Acetaminofen</option>
-                                <option value="3">Tapcin</option>
-                            </select>
-                       
-                      </div>
-
-
 
                       <div class="mx-auto" style="width: 200px;">
                       <div class="text center">  <button type="submit" class="btn btn-sm btn-info" id="b_estudiante" ><i class="fa-solid fa-floppy-disk"></i> Actualizar</button></div>

@@ -11,11 +11,11 @@
 
 
     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="error-404.html" aria-expanded="false"><i class="fas fa-users"></i><span
+            href="{{route('encargados')}}" aria-expanded="false"><i class="fas fa-users"></i><span
                 class="hide-menu"> Encargados</span></a></li>
 
     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="table-basic.html" aria-expanded="false"><i class="fas fa-cabinet-filing"></i><span
+            href="{{route('matriculas')}}" aria-expanded="false"><i class="fas fa-cabinet-filing"></i><span
                 class="hide-menu">Matriculas</span></a></li>
 
     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"

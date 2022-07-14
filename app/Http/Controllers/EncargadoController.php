@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Estudiante;
+use App\Models\Encargado;
 use Illuminate\Http\Request;
 
-class EstudianteController extends Controller
+class EncargadoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes= Estudiante::all();
-        return view('Admin.institucion.estudiante', compact('estudiantes'));
+        $encargados= Encargado::all();
+        return view('Admin.institucion.encargados', compact('encargados'));
     }
 
     /**
@@ -26,7 +26,7 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        return view('Admin.institucion.insertar_estudiante');
+        return view('Admin.institucion.insertar_encargado');
     }
 
     /**
@@ -37,17 +37,7 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        $estudiante = new  Estudiante();
-        
-        $estudiante->cedula=$request->cedula;
-        $estudiante->nombre=$request->nombre;
-        $estudiante->apellidos=$request->apellidos;
-        $estudiante->telefono=$request->telefono;
-        $estudiante->enfermedad=$request->enfermedad;
-        $estudiante->medicamentos=$request->medicamentos;
-        $estudiante->save();
-
-        return redirect()->route('estudiantes.index');
+        //
     }
 
     /**
@@ -81,17 +71,7 @@ class EstudianteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $estudiante =  Estudiante::find($id);
-
-        $estudiante->cedula=$request->cedula;
-        $estudiante->nombre=$request->nombre;
-        $estudiante->apellidos=$request->apellidos;
-        $estudiante->telefono=$request->telefono;
-        $estudiante->enfermedad=$request->enfermedad;
-        $estudiante->medicamentos=$request->medicamentos;
-        $estudiante->save();
-
-        return redirect()->route('estudiantes.index');
+        //
     }
 
     /**
@@ -102,12 +82,11 @@ class EstudianteController extends Controller
      */
     public function destroy($id)
     {
-        $data = Estudiante::find($id);
-        $data->delete();
-
-        return back();
+        //
     }
 
+
+    
     /**
      * IAN
      * SON METODOS SOLO PARA VERIFICAR LAS PANTALLAS, QUITAR PARA CONECTAR BIEN LA GRAFICA CCON EL STORE UPDATE Y ESOS
@@ -115,8 +94,7 @@ class EstudianteController extends Controller
      */
     public function editar(){
 
-        return view('Admin.institucion.edit_estudiante');
+        return view('Admin.institucion.edit_encargado');
     }
-
 
 }

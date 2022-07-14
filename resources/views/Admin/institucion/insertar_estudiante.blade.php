@@ -48,41 +48,49 @@
                   <form action="" enctype="multipart/form-data"
                       class="form-group p-2 form-grid" method="POST">
                       @csrf
-                      <div class="form-inline  px-2">
-                          <label class="form-label mb-4">Cedula</label>
-                          <input type="text" class="form-control mb-4 ml-5" name="cedula" required>
+                      <div class="form-inline col-mb-5 px-2">
+                          <label class="form-label mb-4">Cedula  </label>
+                          <input type="text" class="form-control mb-3 ml-5" name="cedula" required>
                       </div>
 
                       <div class="form-inline col-mb-5 px-2">
                           <label class="form-label mb-4 ">Nombre</label>
-                          <input type="text" class="form-control ml-5 mb-4 " name="nombre" required>
-                     
+                          <input type="text" class="form-control mb-3 ml-5 " name="nombre" required>
+                    
 
                           <label class="form-label mb-4 ml-3" >Apellidos</label>
-                          <input type="text" class="form-control ml-4 mb-4 " name="apellidos" required>
+                          <input type="text" class="form-control mb-4 ml-4 " name="apellidos" required>
                       </div>
 
 
 
                       <div class="form-inline col-mb-5 px-2">
                           <label class="form-label mb-4 ">Fecha de Nacimiento</label>
-                          <input type="date" class="form-control ml-2 mb-4 " name="fecha_nacimiento" required>
+                          <input type="date" class="form-control mb-4 ml-2 " name="fecha_nacimiento" required>
                           </div>
 
                           <div class="form-inline col-mb-5 px-2">
                           <label class="form-label mb-4 " >Telefono</label>
-                          <input type="text" class="form-control ml-5 mb-4 " id="id_input" name="telefono" >
+                          <input type="text" class="form-control mb-4 ml-5" id="id_input" name="telefono" >
                       </div>
                       
 
                       <div class="form-inline col-mb-5 px-2 ">
                           <label class="form-label mb-4 ">Enfermedades</label>
-                          <input type="text" class="form-control ml-2 mb-4" name="enfermedad">
+                          <input type="text" class="form-control mb-4 ml-3" name="enfermedades">
+                         
                           </div>
 
                           <div class="form-inline col-mb-5 px-2 ">
                           <label class="form-label mb-4" >Medicamentos</label>
-                          <input type="text" class="form-control ml-2 mb-4 " name="medicamentos">
+                          
+                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
+                                <option selected>-Seleccione-</option>
+                                <option value="1">Ninguna</option>
+                                <option value="2">Cancer</option>
+                                <option value="3">Gripe</option>
+                            </select>
+                       
                       </div>
 
 

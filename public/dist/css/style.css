@@ -391,6 +391,20 @@ border-radius: 15px;
   
   }
 
+  #b_editar{
+    border: 1px solid #ffbc34; /*anchura, estilo y color borde*/
+    padding: 7px; /*espacio alrededor texto*/
+    background-color: #ffbc34; /*color botón*/
+    border-radius: 5px;
+    
+    }
+    #b_eliminar{
+      border: 1px solid #8d0303; /*anchura, estilo y color borde*/
+      padding: 7px; /*espacio alrededor texto*/
+      background-color: #8d0303; /*color botón*/
+      border-radius: 5px;
+      
+      }
 #id_estudiante{
   margin-top: -35px;
 

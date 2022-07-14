@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\EstudianteController;
-
+use App\Http\Controllers\EncargadoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +27,25 @@ Route::get('/', function () {
 })->name('indexAdmin'); */
 
 
+
+/* RUTAS PROVICIONALES QUITAR SI SON NECESARIAS PARA CONECTAR CON LOS METODOS DE LOS CONTROLADORES, 
+BORRAR METODOS PROVICIONALES AL FINAL DE LOS CONTROLADORES*/ 
+
 Route::get('/estudiantes',[EstudianteController::class, 'index'])->name('estudiantes');
 Route::get('/insertar_estudiante',[EstudianteController::class, 'create'])->name('create_estudiantes');
+Route::get('/edit_estudiante',[EstudianteController::class, 'editar'])->name('editar_estudiantes');
+
+Route::get('/encargados',[EncargadoController::class, 'index'])->name('encargados');
+Route::get('/insertar_encargado',[EncargadoController::class, 'create'])->name('create_encargado');
+Route::get('/edit_encargado',[EncargadoController::class, 'editar'])->name('editar_encargados');
+
+Route::get('/matricula',[MatriculaController::class, 'index'])->name('matriculas');
+/* RUTAS PROVICIONALES QUITAR SI SON NECESARIAS PARA CONECTAR CON LOS METODOS DE LOS CONTROLADORES*/
+
+
+
+
+
 
 Route::get('/usuarios',[AdminController::class, 'show'])->name('usuariosRegistrados');
 
