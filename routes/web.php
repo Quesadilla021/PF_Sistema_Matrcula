@@ -7,6 +7,8 @@ use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\EncargadoController;
+use App\Http\Controllers\PagoController;
+use App\Http\Controllers\ReporteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +45,13 @@ Route::get('/edit_encargado',[EncargadoController::class, 'editar'])->name('edit
 Route::get('/matricula',[MatriculaController::class, 'index'])->name('matriculas');
 Route::get('/insertar_matricula',[MatriculaController::class, 'create'])->name('create_matriculas');
 Route::get('/edit_matricula',[MatriculaController::class, 'editar'])->name('editar_matriculas');
+
+Route::get('/pago',[PagoController::class, 'index'])->name('pagos');
+Route::get('/insertar_pago',[PagoController::class, 'create'])->name('create_pagos');
+Route::get('/edit_pago',[PagoController::class, 'editar'])->name('editar_pagos');
+
+Route::get('/reporte_pago',[ReporteController::class, 'reporte'])->name('reporte_pago');
+
 /* RUTAS PROVICIONALES QUITAR SI SON NECESARIAS PARA CONECTAR CON LOS METODOS DE LOS CONTROLADORES*/
 
 

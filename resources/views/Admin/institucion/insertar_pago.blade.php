@@ -5,14 +5,14 @@
 @endsection
 
 @section('titulo')
-    InsertarMatricula
+    InsertarPago
 @endsection
 
 @section('contenidoInstitucion')
 
 
 <div id="id_regresar">
-<a href="{{route('matriculas')}}" id="b_regresar" >
+<a href="{{route('pagos')}}" id="b_regresar" >
 <i class="fas fa-arrow-circle-left"></i> Atrás</button></a>
 </div>
 
@@ -35,7 +35,7 @@
 <div class="card">
                     <div class="card-header">
 
-                        <h4 class="card-title">Proceso de Matricula</h4>
+                        <h4 class="card-title">Proceso de Pago</h4>
                                     
                     </div>
 
@@ -63,41 +63,33 @@
                       </div>
                       <hr>
 
-                      
-                      <div class="card-header mb-3">
-                      <h4 class="card-title">Datos del Encargado</h4>
-                    </div>
 
                       <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4">Cedula  </label>
-                          <input type="text" class="form-control mb-3 ml-5" name="cedula" required>
+                          <label class="form-label mb-4">N° Matrícula</label>
+                          <input type="text" class="form-control mb-3 ml-5"  required>
                       </div>
 
                       <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4 ">Nombre</label>
+                          <label class="form-label mb-4 ">Total</label>
                           <input type="text" class="form-control mb-3 ml-5 " name="nombre" required>
-                    
-
-                          <label class="form-label mb-4 ml-3" >Apellidos</label>
-                          <input type="text" class="form-control mb-4 ml-4 " name="apellidos" required>
                       </div>
                       <hr>
 
                       <div class="form-inline col-mb-5 px-2 ">
-                          <label class="form-label mb-4" >Grado</label>
+                          <label class="form-label mb-4" >Metodo de pago</label>
                           
                           <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
                                 <option selected>-Seleccione-</option>
-                                <option value="1">Primero</option>
-                                <option value="2">Segundo</option>
-                                <option value="3">Tercero</option>
+                                <option value="1">Efectivo</option>
+                                <option value="2">Transferencia</option>
+                                <option value="3">Tarjeta</option>
                             </select>
                        
                       </div>
 
                       <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4 ">Fecha de Matricula</label>
-                          <input type="date" class="form-control mb-4 ml-2 " name="fecha" required>
+                          <label class="form-label mb-4 ">Subir comprobante</label>
+                          <input type="file" class="form-control mb-4 ml-2 " name="comprobante" >
                           </div>
 
                       
