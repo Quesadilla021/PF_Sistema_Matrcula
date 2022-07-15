@@ -40,6 +40,7 @@
                             <th>CEDULA</th>
                             <th>NOMBRE</th>
                             <th>APELLIDOS</th>
+                            <th>TELEFONO</th>
                             <th>F_NACIMIENTO</th>
                             <th>ENFERMEDADES</th>
                             <th>MEDICAMENTOS</th>
@@ -49,16 +50,16 @@
                     </thead>
     
                     <tbody>
-                  
+                  @foreach ($estudiantes as $item)
+                      
                         <tr>
-                            <td></td>
-                            <td></td>
-                        
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-    
+                            <td>{{$item->cedula}}</td>
+                            <td>{{$item->nombre}}</td>
+                            <td>{{$item->apellidos}}</td>
+                            <td>{{$item->telefono}}</td>
+                            <td>{{$item->fecha_nacimiento}}</td>
+                            <td>{{$item->medicamentos}}</td>
+                            <td>{{$item->enfermedad}}</td>
     
                             <td>
                                 <form action="" method="POST">
@@ -74,11 +75,8 @@
     
                                 </form>
                             </td>
-                  
-                      
-                           
                         </tr>
-                 
+                    @endforeach
                     </tbody>
                   </table>
     

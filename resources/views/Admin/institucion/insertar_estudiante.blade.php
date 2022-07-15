@@ -45,11 +45,11 @@
               <div class="card-body">
 
 
-                  <form action="" enctype="multipart/form-data"
+                  <form action="{{route('store_estudiantes')}}" enctype="multipart/form-data"
                       class="form-group p-2 form-grid" method="POST">
                       @csrf
                       <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4">Cedula  </label>
+                          <label class="form-label mb-4">Cedula</label>
                           <input type="text" class="form-control mb-3 ml-5" name="cedula" required>
                       </div>
 
@@ -62,12 +62,15 @@
                           <input type="text" class="form-control mb-4 ml-4 " name="apellidos" required>
                       </div>
 
-
-
                       <div class="form-inline col-mb-5 px-2">
                           <label class="form-label mb-4 ">Fecha de Nacimiento</label>
                           <input type="date" class="form-control mb-4 ml-2 " name="fecha_nacimiento" required>
-                          </div>
+                        </div>
+
+                        <div class="form-inline col-mb-5 px-2">
+                            <label class="form-label mb-4">Telefono</label>
+                            <input type="text" class="form-control mb-3 ml-5" name="telefono" required>
+                        </div>
 
                       <div class="form-inline col-mb-5 px-2 ">
                           <label class="form-label mb-4 ">Enfermedades</label>
@@ -78,16 +81,13 @@
                           <div class="form-inline col-mb-5 px-2 ">
                           <label class="form-label mb-4" >Medicamentos</label>
                           
-                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
-                                <option selected>-Seleccione-</option>
-                                <option value="1">Ninguna</option>
-                                <option value="2">Cancer</option>
-                                <option value="3">Gripe</option>
+                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " name="medicamentos">
+                                <option value="Ninguna" selected>Ninguna</option>
+                                <option value="Cancer">Cancer</option>
+                                <option value="Gripe">Gripe</option>
                             </select>
                        
                       </div>
-
-
 
                       <div class="mx-auto" style="width: 200px;">
                       <div class="text center">  <button type="submit" class="btn btn-sm btn-info" id="b_estudiante" ><i class="fa-solid fa-floppy-disk"></i> Guardar</button></div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EstudianteController extends Controller
 {
@@ -39,15 +40,17 @@ class EstudianteController extends Controller
     {
         $estudiante = new  Estudiante();
         
+        $estudiante->id_tenant=Auth::user()->id_tenant;
         $estudiante->cedula=$request->cedula;
         $estudiante->nombre=$request->nombre;
         $estudiante->apellidos=$request->apellidos;
         $estudiante->telefono=$request->telefono;
-        $estudiante->enfermedad=$request->enfermedad;
+        $estudiante->fecha_nacimiento=$request->fecha_nacimiento;
+        $estudiante->enfermedad=$request->enfermedades;
         $estudiante->medicamentos=$request->medicamentos;
         $estudiante->save();
 
-        return redirect()->route('estudiantes.index');
+        return redirect()->route('estudiantes');
     }
 
     /**
