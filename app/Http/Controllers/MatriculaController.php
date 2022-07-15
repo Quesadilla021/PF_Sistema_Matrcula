@@ -24,5 +24,14 @@ class MatriculaController extends Controller
         return view('Admin.institucion.matricula', compact('matriculas'));
     }
 
+    public function create(){
+
+        return view('Admin.institucion.insertar_matricula');
+    }
+
+    public function editar(){
+
+        return view('Admin.institucion.edit_matricula');
+    }
 
 }
