@@ -11,7 +11,6 @@
 @section('contenidoInstitucion')
 
 
-
 <div class="container-fluid">
 <div class="row">
     
@@ -37,6 +36,7 @@
     
                     <thead class="table-dark">
                         <tr>
+                            <th>ESTUDIANTE</th>
                             <th>CEDULA</th>
                             <th>NOMBRE</th>
                             <th>APELLIDOS</th>
@@ -53,6 +53,7 @@
                   
                         <tr>
                    
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>

@@ -41,7 +41,6 @@
                             <th>NOMBRE</th>
                             <th>APELLIDOS</th>
                             <th>F_NACIMIENTO</th>
-                            <th>TELEFONO</th>
                             <th>ENFERMEDADES</th>
                             <th>MEDICAMENTOS</th>
                             <th>OPCIONES</th>
@@ -54,7 +53,7 @@
                         <tr>
                             <td></td>
                             <td></td>
-                            <td></td>
+                        
                             <td></td>
                             <td></td>
                             <td></td>

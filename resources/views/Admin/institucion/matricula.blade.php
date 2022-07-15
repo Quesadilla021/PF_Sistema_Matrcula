@@ -5,126 +5,101 @@
 @endsection
 
 @section('titulo')
-    InsertarEstudiantes
+    Estudiantes
 @endsection
 
 @section('contenidoInstitucion')
 
 
+
+<div class="container-fluid">
+<div class="row">
+    
+<div id="id_estudiante">
+
+ <a href="{{route('create_matriculas')}}" id="b_estudiante">+ Nueva Matricula</a>
+
+</div>
+
 <hr>
-<div class="container">
-
-
-
-    <div class="row">
-
-    <div class="col-1"></div>
-
-<div class="col-10">
-
-
-
-
-
-
-<div class="card">
-                    <div class="card-header">
-
-                        <h4 class="card-title">Proceso de Matricula</h4>
-                                    
-                    </div>
-
-                    <div class="card-body">
-
-                    <div class="card card-user">
-              
-              <div class="card-body">
-
-
-                  <form action="" enctype="multipart/form-data"
-                      class="form-group p-2 form-grid" method="POST">
-                      @csrf
-
-                      <div class="form-inline col-mb-5 px-2 ">
-                          <label class="form-label mb-4" >Estudiante</label>
-                          
-                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
-                                <option selected>-Seleccione-</option>
-                                <option value="1">Yansineth Vargas Bustos</option>
-                                <option value="2">Ian Quesada Rojas</option>
-                                <option value="3">Gerald Ramirez Hernadez</option>
-                            </select>
-                       
-                      </div>
-                      <hr>
-
+<div class="col-md-12">
+             
+             <div class="card">
+                <div class="card-header">
+    
+                    <h4 class="card-title">Matriculas Registradas</h4>
+                                      
+                </div>
+    
+                <div class="card-body">
+                <div class="table-responsive-lg">
+                    <table class="table table-striped" id="tabla">
+    
+                    <thead class="table-dark">
+                        <tr>
+                            <th>MATRICULA</th>
+                            <th>NOMBRE</th>
+                            <th>APELLIDOS</th>
+                            <th>F_NACIMIENTO</th>
+                            <th>TELEFONO</th>
+                            <th>ENFERMEDADES</th>
+                            <th>MEDICAMENTOS</th>
+                            <th>OPCIONES</th>
+                         
+                        </tr>
+                    </thead>
+    
+                    <tbody>
+                  
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+    
+    
+                            <td>
+                                <form action="" method="POST">
+                                    @csrf
+                                    <a href="{{route('editar_matriculas')}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
+                                        <i class="fas fa-pencil-alt"></i></button></a>
+    
+                                              
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger" id="b_eliminar"
+                                        onclick="return confirm('¿Seguro de que quieres borrar?')">
+                                        <i class=" fas fa-trash"></i></button>
+    
+                                </form>
+                            </td>
+                  
                       
-                      <div class="card-header mb-3">
-                      <h4 class="card-title">Datos del Encargado</h4>
-                    </div>
-
-                      <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4">Cedula  </label>
-                          <input type="text" class="form-control mb-3 ml-5" name="cedula" required>
-                      </div>
-
-                      <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4 ">Nombre</label>
-                          <input type="text" class="form-control mb-3 ml-5 " name="nombre" required>
-                    
-
-                          <label class="form-label mb-4 ml-3" >Apellidos</label>
-                          <input type="text" class="form-control mb-4 ml-4 " name="apellidos" required>
-                      </div>
-                      <hr>
-
-                      <div class="form-inline col-mb-5 px-2 ">
-                          <label class="form-label mb-4" >Grado</label>
-                          
-                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
-                                <option selected>-Seleccione-</option>
-                                <option value="1">Primero</option>
-                                <option value="2">Segundo</option>
-                                <option value="3">Tercero</option>
-                            </select>
-                       
-                      </div>
-
-                      <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4 ">Fecha de Matricula</label>
-                          <input type="date" class="form-control mb-4 ml-2 " name="fecha" required>
-                          </div>
-
-                      
-
-
-
-                      <div class="mx-auto" style="width: 200px;">
-                      <div class="text center">  <button type="submit" class="btn btn-sm btn-info" id="b_estudiante" ><i class="fa-solid fa-floppy-disk"></i> Guardar</button></div>
-                      </div>
-                  </form>
-
-               
-              </div>
-              <hr>
-               <br>
-          </div>
-
-
-            </div>
-
-             </div>
-</div>
+                           
+                        </tr>
+                 
+                    </tbody>
+                  </table>
+    
+    
+                 </div>
+                </div>
+    
+                </div>
+    
 
 
 
 
-<div class="col-1"></div>
 
-</div>
+
 
 </div>
 
 
+</div>
 
 @endsection
+

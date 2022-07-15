@@ -41,6 +41,8 @@ Route::get('/insertar_encargado',[EncargadoController::class, 'create'])->name('
 Route::get('/edit_encargado',[EncargadoController::class, 'editar'])->name('editar_encargados');
 
 Route::get('/matricula',[MatriculaController::class, 'index'])->name('matriculas');
+Route::get('/insertar_matricula',[MatriculaController::class, 'create'])->name('create_matriculas');
+Route::get('/edit_matricula',[MatriculaController::class, 'editar'])->name('editar_matriculas');
 /* RUTAS PROVICIONALES QUITAR SI SON NECESARIAS PARA CONECTAR CON LOS METODOS DE LOS CONTROLADORES*/
 
 

@@ -18,18 +18,11 @@
 <hr>
 <div class="container">
 
-
-
     <div class="row">
 
     <div class="col-1"></div>
 
 <div class="col-10">
-
-
-
-
-
 
 <div class="card">
                     <div class="card-header">
@@ -46,7 +39,7 @@
 
 
                   <form action="" enctype="multipart/form-data"
-                      class="form-group p-2 form-grid" method="POST">
+                      class="form-group form-grid" method="POST">
                       @csrf
 
                       <div class="form-inline col-mb-5 px-2 ">
@@ -80,6 +73,12 @@
                       <div class="form-inline col-mb-5 px-2">
                           <label class="form-label mb-4 ">Fecha de Nacimiento</label>
                           <input type="date" class="form-control mb-4 ml-2 " name="fecha_nacimiento" required>
+                          </div>
+
+                          
+                      <div class="form-inline col-mb-5 px-2">
+                          <label class="form-label mb-4">Telefono</label>
+                          <input type="text" class="form-control mb-3 ml-5" name="telefono" required>
                           </div>
 
                           <div class="form-inline col-mb-5 px-2">
