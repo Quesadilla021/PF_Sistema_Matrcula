@@ -37,13 +37,11 @@
     
                     <thead class="table-dark">
                         <tr>
-                            <th>MATRICULA</th>
-                            <th>NOMBRE</th>
-                            <th>APELLIDOS</th>
-                            <th>F_NACIMIENTO</th>
-                            <th>TELEFONO</th>
-                            <th>ENFERMEDADES</th>
-                            <th>MEDICAMENTOS</th>
+                            <th>ESTUDIANTE</th>
+                            <th>ENCARGADO</th>
+                            <th>GRADO</th>
+                            <th>FECHA MATRICULA</th>
+                            <th>METODO PAGO</th>
                             <th>OPCIONES</th>
                          
                         </tr>
@@ -58,7 +56,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                        
     
     
                             <td>
