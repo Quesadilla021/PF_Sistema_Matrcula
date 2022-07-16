@@ -5,7 +5,7 @@
 @endsection
 
 @section('titulo')
-   matricula
+    pagos
 @endsection
 
 @section('contenidoInstitucion')
@@ -17,7 +17,7 @@
     
 <div id="id_estudiante">
 
- <a href="{{route('create_matriculas')}}" id="b_estudiante">+ Nueva Matricula</a>
+ <a href="{{route('create_pagos')}}" id="b_estudiante">+ Nuevo Pago</a>
 
 </div>
 
@@ -27,7 +27,7 @@
              <div class="card">
                 <div class="card-header">
     
-                    <h4 class="card-title">Matriculas Registradas</h4>
+                    <h4 class="card-title">Pagos Registrados</h4>
                                       
                 </div>
     
@@ -37,11 +37,12 @@
     
                     <thead class="table-dark">
                         <tr>
+
+                            <th>CEDULA</th>    
                             <th>ESTUDIANTE</th>
-                            <th>ENCARGADO</th>
-                            <th>GRADO</th>
-                            <th>FECHA MATRICULA</th>
-                            <th>METODO PAGO</th>
+                            <th>N° MATRICULA</th>
+                            <th>METODO DE PAGO</th>
+                            <th>COMPROBANTE</th>
                             <th>OPCIONES</th>
                          
                         </tr>
@@ -56,13 +57,14 @@
                             <td></td>
                             <td></td>
                  
+                 
                         
     
     
                             <td>
                                 <form action="" method="POST">
                                     @csrf
-                                    <a href="{{route('editar_matriculas')}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
+                                    <a href="{{route('editar_pagos')}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
                                         <i class="fas fa-pencil-alt"></i></button></a>
     
                                               

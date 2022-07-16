@@ -5,7 +5,7 @@
 @endsection
 
 @section('titulo')
-   matricula
+   grados
 @endsection
 
 @section('contenidoInstitucion')
@@ -15,19 +15,19 @@
 <div class="container-fluid">
 <div class="row">
     
-<div id="id_estudiante">
-
- <a href="{{route('create_matriculas')}}" id="b_estudiante">+ Nueva Matricula</a>
-
+<div id="id_regresar">
+<a href="{{route('inicio')}}" id="b_regresar" >
+<i class="fas fa-arrow-circle-left"></i> Atrás</button></a>
 </div>
 
 <hr>
-<div class="col-md-12">
+<div class="col-3"></div>
+<div class="col-md-6">
              
              <div class="card">
                 <div class="card-header">
     
-                    <h4 class="card-title">Matriculas Registradas</h4>
+                    <h4 class="card-title">Cupos Asignados</h4>
                                       
                 </div>
     
@@ -37,11 +37,8 @@
     
                     <thead class="table-dark">
                         <tr>
-                            <th>ESTUDIANTE</th>
-                            <th>ENCARGADO</th>
                             <th>GRADO</th>
-                            <th>FECHA MATRICULA</th>
-                            <th>METODO PAGO</th>
+                            <th>CUPO</th>
                             <th>OPCIONES</th>
                          
                         </tr>
@@ -50,19 +47,15 @@
                     <tbody>
                   
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                 
+                            <td>Primero</td>
+                            <td>40</td>
                         
     
     
                             <td>
                                 <form action="" method="POST">
                                     @csrf
-                                    <a href="{{route('editar_matriculas')}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
+                                    <a href="{{route('editgrados')}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
                                         <i class="fas fa-pencil-alt"></i></button></a>
     
                                               
@@ -95,6 +88,7 @@
 
 
 </div>
+<div class="col-3"></div>
 
 
 </div>
