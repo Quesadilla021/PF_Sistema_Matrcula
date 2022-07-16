@@ -62,18 +62,16 @@
                             <td>{{$item->enfermedad}}</td>
     
                             <td>
-                                <form action="" method="POST">
-                                    @csrf
-                                    <a href="{{route('editar_estudiantes')}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
+                                {{-- <form id="eliminarEstudiante" method="POST"> --}}
+                                    <a href="{{route('editar_estudiantes', $item->id_estudiante)}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
                                         <i class="fas fa-pencil-alt"></i></button></a>
-    
-                                              
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" id="b_eliminar"
-                                        onclick="return confirm('¿Seguro de que quieres borrar?')">
+                                    @csrf                                        
+                                    {{-- @method('DELETE') --}}
+                                    <button type="button" class="btn btn-sm btn-danger"
+                                        onclick="eliminarEst_Alerta({{$item->id_estudiante}})">
                                         <i class=" fas fa-trash"></i></button>
     
-                                </form>
+                                {{--  --}}
                             </td>
                         </tr>
                     @endforeach
@@ -86,17 +84,10 @@
     
                 </div>
     
-
-
-
-
-
-
-
+</div>
 </div>
 
 
-</div>
 
 @endsection
 

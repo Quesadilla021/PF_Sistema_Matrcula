@@ -25,12 +25,6 @@
     <div class="col-1"></div>
 
 <div class="col-10">
-
-
-
-
-
-
 <div class="card">
                     <div class="card-header">
 
@@ -45,9 +39,8 @@
               <div class="card-body">
 
 
-                  <form action="{{route('store_estudiantes')}}" enctype="multipart/form-data"
-                      class="form-group p-2 form-grid" method="POST">
-                      @csrf
+                  <form id="formEstudiante">
+                      
                       <div class="form-inline col-mb-5 px-2">
                           <label class="form-label mb-4">Cedula</label>
                           <input type="text" class="form-control mb-3 ml-5" name="cedula" required>
@@ -81,10 +74,10 @@
                           <div class="form-inline col-mb-5 px-2 ">
                           <label class="form-label mb-4" >Medicamentos</label>
                           
-                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " name="medicamentos">
+                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " id="medicamentos" name="medicamentos">
                                 <option value="Ninguna" selected>Ninguna</option>
-                                <option value="Cancer">Cancer</option>
-                                <option value="Gripe">Gripe</option>
+                                <option value="Acetaminofen">Acetaminofen</option>
+                                <option value="Tapcin">Tapcin</option>
                             </select>
                        
                       </div>
@@ -115,6 +108,13 @@
 
 </div>
 
+
+
+@endsection
+
+@extends('Admin.parts.partsjs')
+@section('parteJS')
+    
 
 
 @endsection

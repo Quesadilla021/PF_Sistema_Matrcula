@@ -35,7 +35,9 @@ BORRAR METODOS PROVICIONALES AL FINAL DE LOS CONTROLADORES*/
 Route::get('/estudiantes',[EstudianteController::class, 'index'])->name('estudiantes');
 Route::get('/insertar_estudiante',[EstudianteController::class, 'create'])->name('create_estudiantes');
 Route::post('/insertarEst',[EstudianteController::class, 'store'])->name('store_estudiantes');
-Route::get('/edit_estudiante',[EstudianteController::class, 'editar'])->name('editar_estudiantes');
+Route::get('/edit_estudiante_{id}',[EstudianteController::class, 'editar'])->name('editar_estudiantes');
+Route::post('/update_estudiante_{id}',[EstudianteController::class, 'update'])->name('update_estudiantes');
+Route::get('/eliminarEst_{id}',[EstudianteController::class, 'destroy'])->name('destroy_estudiantes');//delete
 
 Route::get('/encargados',[EncargadoController::class, 'index'])->name('encargados');
 Route::get('/insertar_encargado',[EncargadoController::class, 'create'])->name('create_encargado');

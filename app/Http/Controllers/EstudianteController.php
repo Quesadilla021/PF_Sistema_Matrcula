@@ -38,6 +38,7 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
+   
         $estudiante = new  Estudiante();
         
         $estudiante->id_tenant=Auth::user()->id_tenant;
@@ -50,7 +51,7 @@ class EstudianteController extends Controller
         $estudiante->medicamentos=$request->medicamentos;
         $estudiante->save();
 
-        return redirect()->route('estudiantes');
+        return back();
     }
 
     /**
@@ -90,11 +91,12 @@ class EstudianteController extends Controller
         $estudiante->nombre=$request->nombre;
         $estudiante->apellidos=$request->apellidos;
         $estudiante->telefono=$request->telefono;
-        $estudiante->enfermedad=$request->enfermedad;
+        $estudiante->fecha_nacimiento=$request->fecha_nacimiento;
+        $estudiante->enfermedad=$request->enfermedades;
         $estudiante->medicamentos=$request->medicamentos;
         $estudiante->save();
 
-        return redirect()->route('estudiantes.index');
+        return back();
     }
 
     /**
@@ -116,9 +118,11 @@ class EstudianteController extends Controller
      * SON METODOS SOLO PARA VERIFICAR LAS PANTALLAS, QUITAR PARA CONECTAR BIEN LA GRAFICA CCON EL STORE UPDATE Y ESOS
      *
      */
-    public function editar(){
+    public function editar($id){
 
-        return view('Admin.institucion.edit_estudiante');
+        $estudiante = Estudiante::find($id);
+
+        return view('Admin.institucion.edit_estudiante', compact('estudiante'));
     }
 
 
