@@ -2,7 +2,7 @@
 
 <ul id="sidebarnav">
     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-            href="index.html" aria-expanded="false"><i class="fas fa-university"></i><span
+            href="{{route('inicio')}}" aria-expanded="false"><i class="fas fa-university"></i><span
                 class="hide-menu">Institucion</span></a></li>
 
     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"

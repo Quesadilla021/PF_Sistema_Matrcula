@@ -5,7 +5,7 @@
 @endsection
 
 @section('titulo')
-    Estudiantes
+   matricula
 @endsection
 
 @section('contenidoInstitucion')

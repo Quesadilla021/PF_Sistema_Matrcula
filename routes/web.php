@@ -52,10 +52,17 @@ Route::get('/edit_pago',[PagoController::class, 'editar'])->name('editar_pagos')
 
 Route::get('/reporte_pago',[ReporteController::class, 'reporte'])->name('reporte_pago');
 
-/* RUTAS PROVICIONALES QUITAR SI SON NECESARIAS PARA CONECTAR CON LOS METODOS DE LOS CONTROLADORES*/
 
 
+Route::get('/inicio',[AdminController::class, 'inicio'])->name('inicio');
 
+Route::get('/grados',[AdminController::class, 'grado'])->name('grados');
+Route::get('/edit_grados',[AdminController::class, 'editar_grado'])->name('editgrados');
+
+/* RUTAS PROVICIONALES QUITAR SI SON NECESARIAS PARA CONECTAR CON LOS METODOS DE LOS CONTROLADORES LAS DE ARRIBA*/
+
+
+Route::get('/inicio',[AdminController::class, 'inicio'])->name('inicio');
 
 
 

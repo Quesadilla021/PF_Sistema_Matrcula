@@ -5,7 +5,7 @@
 @endsection
 
 @section('titulo')
-    InsertarEncargado
+    reportes
 @endsection
 
 @section('contenidoInstitucion')
