@@ -14,13 +14,7 @@
     <script src="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="../dist/js/pages/dashboards/dashboard1.js"></script>
 
-    <script>
 
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
-
-    </script>
 
 <script>
             $(document).ready(function() {

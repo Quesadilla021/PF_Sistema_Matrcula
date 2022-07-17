@@ -33,7 +33,7 @@
     
                 <div class="card-body">
                 <div class="table-responsive-lg">
-                    <table class="table table-striped" id="tabla">
+                    <table class="table table-striped" id="tablaMatriculas">
     
                     <thead class="table-dark">
                         <tr>
@@ -48,36 +48,28 @@
                     </thead>
     
                     <tbody>
-                  
+                        @foreach ($matriculas as $item)                        
                         <tr>
+                            <td>{{$item->estudiante->nombre}}</td>
+                            <td>{{$item->encargado->nombre}}</td>
+                            <td>{{$item->grado->nombre}}</td>
+                            <td>{{$item->fecha}}</td>
                             <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                 
-                        
-    
-    
+
                             <td>
-                                <form action="" method="POST">
-                                    @csrf
-                                    <a href="{{route('editar_matriculas')}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
+                                    <a href="{{route('editar_matriculas', $item->id_matricula)}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
                                         <i class="fas fa-pencil-alt"></i></button></a>
-    
-                                              
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" id="b_eliminar"
-                                        onclick="return confirm('¿Seguro de que quieres borrar?')">
+                                       
+                                    <button type="button" class="btn btn-sm btn-danger"
+                                        onclick="eliminarMat_Alerta({{$item->id_matricula}})">
                                         <i class=" fas fa-trash"></i></button>
     
-                                </form>
                             </td>
                   
                       
                            
                         </tr>
-                 
+                        @endforeach
                     </tbody>
                   </table>
     
@@ -86,14 +78,6 @@
                 </div>
     
                 </div>
-    
-
-
-
-
-
-
-
 </div>
 
 
@@ -101,3 +85,58 @@
 
 @endsection
 
+@extends('Admin.parts.partsjs')
+@section('parteJS')
+    
+    <script>
+
+    var idSelect;
+
+    function eliminarMat_Alerta(id) {
+        idSelect = id;
+        console.log(idSelect);
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+
+        }).then((result) => {
+    if (result.isConfirmed) {
+        eliminarAJAX_Mat();
+
+        Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+        )
+        } 
+    })
+    }
+
+    function eliminarAJAX_Mat() {
+        $.ajax({
+            url: "/eliminarMat_"+idSelect,
+            /* type: 'POST', */
+            success: function(result) {
+                location.reload();
+                /* $('#tablaEncargados').DataTable().ajax.reload(); */ ///Revisar despues, por que no se quiere actualizar
+            }
+        });
+    }
+
+    </script>
+
+<script>
+
+    $(document).ready(function () {
+        $('#tablaMatriculas').DataTable();
+    });
+
+    </script>
+    
+
+@endsection

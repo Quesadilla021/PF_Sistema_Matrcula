@@ -5,7 +5,7 @@
 @endsection
 
 @section('titulo')
-    InsertarEncargado
+    Insertar Encargado
 @endsection
 
 @section('contenidoInstitucion')
@@ -18,16 +18,17 @@
 <hr>
 <div class="container">
 
+
+
     <div class="row">
 
     <div class="col-1"></div>
 
 <div class="col-10">
-
 <div class="card">
                     <div class="card-header">
 
-                        <h4 class="card-title">Formulario de Encargados</h4>
+                        <h4 class="card-title">Formulario de Estudiantes</h4>
                                     
                     </div>
 
@@ -38,24 +39,22 @@
               <div class="card-body">
 
 
-                  <form action="" enctype="multipart/form-data"
-                      class="form-group form-grid" method="POST">
-                      @csrf
+                  <form id="formulario_Encargados">
 
-                      <div class="form-inline col-mb-5 px-2 ">
-                          <label class="form-label mb-4" >Estudiante</label>
-                          
-                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
-                                <option selected>-Seleccione-</option>
-                                <option value="1">Yansineth Vargas Bustos</option>
-                                <option value="2">Ian Quesada Rojas</option>
-                                <option value="3">Gerald Ramirez Hernadez</option>
-                            </select>
-                       
-                      </div>
+                    
+                    <div class="form-inline col-mb-5 px-2 ">
+                        <label class="form-label mb-4" >Estudiante</label>
+                        <select style="width:190px" class="form-select form-control mb-4 ml-3 " id="estudiantes" name="estudiantes">
+                            @foreach ($estudiantes as $item)
+                                <option value="{{$item->id_estudiante}}">{{$item->nombre}}</option>
+                            @endforeach
+                        </select>
 
+                    </div>
+
+                      
                       <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4">Cedula  </label>
+                          <label class="form-label mb-4">Cedula</label>
                           <input type="text" class="form-control mb-3 ml-5" name="cedula" required>
                       </div>
 
@@ -68,26 +67,16 @@
                           <input type="text" class="form-control mb-4 ml-4 " name="apellidos" required>
                       </div>
 
-
-
                       <div class="form-inline col-mb-5 px-2">
                           <label class="form-label mb-4 ">Fecha de Nacimiento</label>
                           <input type="date" class="form-control mb-4 ml-2 " name="fecha_nacimiento" required>
-                          </div>
+                        </div>
 
-                          
-                      <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4">Telefono</label>
-                          <input type="text" class="form-control mb-3 ml-5" name="telefono" required>
-                          </div>
-
-                          <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4 " >Dirección</label>
-                            <textarea name="direccion" class="form-control mb-4 ml-5" cols="60" rows="3"></textarea>
-                      </div>
-                      
-
-
+                      <div class="form-inline col-mb-5 px-2 ">
+                          <label class="form-label mb-4 ">Direccion</label>
+                          <input type="text" class="form-control mb-4 ml-3" name="direccion">
+                         
+                        </div>
 
                       <div class="mx-auto" style="width: 200px;">
                       <div class="text center">  <button type="submit" class="btn btn-sm btn-info" id="b_estudiante" ><i class="fa-solid fa-floppy-disk"></i> Guardar</button></div>
@@ -116,5 +105,52 @@
 </div>
 
 
+
+@endsection
+
+@extends('Admin.parts.partsjs')
+@section('parteJS')
+    
+<script>
+
+    $('#formulario_Encargados').submit(function(e){
+        e.preventDefault();
+    
+        var cedula = $("input[name='cedula']").val();
+        var nombre = $("input[name='nombre']").val();
+        var apellidos = $("input[name='apellidos']").val();
+        var fecha_nacimiento = $("input[name='fecha_nacimiento']").val();
+        var direccion = $("input[name='direccion']").val();
+        var estudiantes = $("#estudiantes").val();
+    
+        $.ajax({
+            url: "{{route('store_encargado')}}",
+            type: "POST",
+    
+            data:{
+                cedula: cedula,
+                nombre: nombre,
+                apellidos: apellidos,
+                fecha_nacimiento: fecha_nacimiento,
+                direccion: direccion,
+                estudiantes: estudiantes,
+                "_token": $("meta[name='csrf-token']").attr("content")
+            },
+            success:function(response){
+                if (response) {
+                    $('#formulario_Encargados')[0].reset();
+                    Swal.fire(
+                        'Registrado',
+                        'El encargado se agrego correctamente',
+                        'success'
+                        );
+                }
+            }
+        });
+    
+    
+    });
+    </script>
+    
 
 @endsection

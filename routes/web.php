@@ -43,11 +43,17 @@ Route::get('/eliminarEst_{id}',[EstudianteController::class, 'destroy'])->name('
 
 Route::get('/encargados',[EncargadoController::class, 'index'])->name('encargados');
 Route::get('/insertar_encargado',[EncargadoController::class, 'create'])->name('create_encargado');
-Route::get('/edit_encargado',[EncargadoController::class, 'editar'])->name('editar_encargados');
+Route::post('/insertarEnc',[EncargadoController::class, 'store'])->name('store_encargado');
+Route::get('/edit_encargado_{id}',[EncargadoController::class, 'editar'])->name('editar_encargados');
+Route::post('/update_encargado_{id}',[EncargadoController::class, 'update'])->name('update_encargado');
+Route::get('/eliminarEnc_{id}',[EncargadoController::class, 'destroy'])->name('destroy_encargados');//delete
 
 Route::get('/matricula',[MatriculaController::class, 'index'])->name('matriculas');
 Route::get('/insertar_matricula',[MatriculaController::class, 'create'])->name('create_matriculas');
-Route::get('/edit_matricula',[MatriculaController::class, 'editar'])->name('editar_matriculas');
+Route::post('/insertarMat',[MatriculaController::class, 'store'])->name('store_matricula');
+Route::get('/edit_matricula_{id}',[MatriculaController::class, 'editar'])->name('editar_matriculas');
+Route::post('/update_matricula_{id}',[MatriculaController::class, 'update'])->name('update_matricula');
+Route::get('/eliminarMat_{id}',[MatriculaController::class, 'destroy'])->name('destroy_matriculas');//delete
 
 Route::get('/pago',[PagoController::class, 'index'])->name('pagos');
 Route::get('/insertar_pago',[PagoController::class, 'create'])->name('create_pagos');
