@@ -14,11 +14,7 @@
 <div class="container-fluid">
 <div class="row">
     
-<div id="id_estudiante">
 
- <a href="{{route('create_encargado')}}" id="b_estudiante">+ Nuevo Encargado</a>
-
-</div>
 
 <hr>
 <div class="col-md-12">
@@ -27,10 +23,14 @@
                 <div class="card-header">
     
                     <h4 class="card-title">Encargados Registrados</h4>
-                                      
+                        
+                    <div id="id_estudiante">
+                        <a href="{{route('create_encargado')}}" id="b_estudiante">+ Nuevo Encargado</a>                    
+                    </div>
                 </div>
     
                 <div class="card-body">
+
                 <div class="table-responsive-lg">
                     <table class="table table-striped" id="tablaEncargados">
     

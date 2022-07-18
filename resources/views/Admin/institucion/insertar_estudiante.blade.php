@@ -115,6 +115,49 @@
 @extends('Admin.parts.partsjs')
 @section('parteJS')
     
+<script>
+
+    $('#formEstudiante').submit(function(e){
+        e.preventDefault();
+    
+        var cedula = $("input[name='cedula']").val();
+        var nombre = $("input[name='nombre']").val();
+        var apellidos = $("input[name='apellidos']").val();
+        var fecha_nacimiento = $("input[name='fecha_nacimiento']").val();
+        var telefono = $("input[name='telefono']").val();
+        var enfermedades = $("input[name='enfermedades']").val();
+        var medicamentos = $("#medicamentos").val();
+        /* var _token = $("input[name='token']").val(); */
+    
+        $.ajax({
+            url: "{{route('store_estudiantes')}}",
+            type: "POST",
+    
+            data:{
+                cedula: cedula,
+                nombre: nombre,
+                apellidos: apellidos,
+                fecha_nacimiento: fecha_nacimiento,
+                telefono: telefono,
+                enfermedades: enfermedades,
+                medicamentos: medicamentos,
+                "_token": $("meta[name='csrf-token']").attr("content")
+            },
+            success:function(response){
+                if (response) {
+                    $('#formEstudiante')[0].reset();
+                    Swal.fire(
+                        'Registrado',
+                        'El estudiante se agrego correctamente',
+                        'success'
+                        );
+                }
+            }
+        });
+    
+    
+    });
+    </script>
 
 
 @endsection

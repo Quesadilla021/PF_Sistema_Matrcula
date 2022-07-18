@@ -15,35 +15,34 @@
 <div class="container-fluid">
 <div class="row">
     
-<div id="id_estudiante">
-
- <a href="{{route('create_estudiantes')}}" id="b_estudiante">+ Nuevo Estudiante</a>
-
-</div>
-
 <hr>
 <div class="col-md-12">
+
+
              
              <div class="card">
                 <div class="card-header">
     
                     <h4 class="card-title">Estudiantes Registrados</h4>
-                                      
+                    <div id="id_estudiante">
+                        <a href="{{route('create_estudiantes')}}" id="b_estudiante">+ Nuevo Estudiante</a>
+                    </div>
                 </div>
     
                 <div class="card-body">
                 <div class="table-responsive-lg">
+
+                       
                     <table class="table table-striped" id="tabla">
     
                     <thead class="table-dark">
                         <tr>
                             <th>CEDULA</th>
-                            <th>NOMBRE</th>
-                            <th>APELLIDOS</th>
+                            <th>NOMBRE COMPLETO</th>
                             <th>TELEFONO</th>
                             <th>F_NACIMIENTO</th>
-                            <th>ENFERMEDADES</th>
                             <th>MEDICAMENTOS</th>
+                            <th>ENFERMEDADES</th>
                             <th>OPCIONES</th>
                          
                         </tr>
@@ -54,8 +53,7 @@
                       
                         <tr>
                             <td>{{$item->cedula}}</td>
-                            <td>{{$item->nombre}}</td>
-                            <td>{{$item->apellidos}}</td>
+                            <td>{{$item->nombre}} {{$item->apellidos}}</td>
                             <td>{{$item->telefono}}</td>
                             <td>{{$item->fecha_nacimiento}}</td>
                             <td>{{$item->medicamentos}}</td>
@@ -77,14 +75,11 @@
                     @endforeach
                     </tbody>
                   </table>
-    
-    
-                 </div>
+                  </div>
                 </div>
-    
-                </div>
-    
-</div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

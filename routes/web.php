@@ -53,11 +53,14 @@ Route::get('/insertar_matricula',[MatriculaController::class, 'create'])->name('
 Route::post('/insertarMat',[MatriculaController::class, 'store'])->name('store_matricula');
 Route::get('/edit_matricula_{id}',[MatriculaController::class, 'editar'])->name('editar_matriculas');
 Route::post('/update_matricula_{id}',[MatriculaController::class, 'update'])->name('update_matricula');
+Route::put('/update_foto_{id}',[MatriculaController::class, 'updateFoto'])->name('update_foto');
 Route::get('/eliminarMat_{id}',[MatriculaController::class, 'destroy'])->name('destroy_matriculas');//delete
 
 Route::get('/pago',[PagoController::class, 'index'])->name('pagos');
 Route::get('/insertar_pago',[PagoController::class, 'create'])->name('create_pagos');
+Route::post('/insertarPago',[PagoController::class, 'store'])->name('store_pagos');
 Route::get('/edit_pago',[PagoController::class, 'editar'])->name('editar_pagos');
+Route::get('/eliminarPago_{id}',[PagoController::class, 'destroy'])->name('destroy_pago');//delete
 
 Route::get('/reporte_pago',[ReporteController::class, 'reporte'])->name('reporte_pago');
 

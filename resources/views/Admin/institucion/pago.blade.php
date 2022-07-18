@@ -33,13 +33,12 @@
     
                 <div class="card-body">
                 <div class="table-responsive-lg">
-                    <table class="table table-striped" id="tabla">
+                    <table class="table table-striped" id="tablaPagos">
     
                     <thead class="table-dark">
                         <tr>
-
-                            <th>CEDULA</th>    
                             <th>ESTUDIANTE</th>
+                            <th>CEDULA</th>    
                             <th>N° MATRICULA</th>
                             <th>METODO DE PAGO</th>
                             <th>COMPROBANTE</th>
@@ -49,37 +48,34 @@
                     </thead>
     
                     <tbody>
-                  
+                  @foreach ($pagos as $item)
+                      
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                 
-                 
-                        
-    
-    
+                            <td>{{$item->matricula->estudiante->nombre}}</td>
+                            <td>{{$item->matricula->estudiante->cedula}}</td>
+                            <td>{{$item->matricula->id_matricula}}</td>
+                            <td>{{$item->metodo_pago}}</td>
+
                             <td>
-                                <form action="" method="POST">
-                                    @csrf
+                                <button type="submit" class="btn btn-secondary" id="b_eliminar"
+                                onclick="return confirm('¿Seguro de que quieres borrar?')">
+                                <i class=" fas fa-trash"></i></button>
+                            </td>
+                 
+                            <td>
+
                                     <a href="{{route('editar_pagos')}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
                                         <i class="fas fa-pencil-alt"></i></button></a>
     
                                               
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger" id="b_eliminar"
-                                        onclick="return confirm('¿Seguro de que quieres borrar?')">
-                                        <i class=" fas fa-trash"></i></button>
+                                        <button type="button" class="btn btn-danger"
+                                        onclick="eliminarPago_Alerta({{$item->id_pago}})">
+                                        <i class=" fas fa-trash"></i></button>   
     
-                                </form>
-                            </td>
-                  
-                      
-                           
+
+                            </td>                 
                         </tr>
-                 
+                    @endforeach
                     </tbody>
                   </table>
     
@@ -102,4 +98,60 @@
 </div>
 
 @endsection
+
+@extends('Admin.parts.partsjs')
+@section('parteJS')
+    
+    <script>
+
+    var idSelect;
+
+    function eliminarPago_Alerta(id) {
+        idSelect = id;
+        console.log(idSelect);
+        Swal.fire({
+        title: 'Estas seguro?',
+        text: "Deseas borrar este pago?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Eliminar'
+
+        }).then((result) => {
+    if (result.isConfirmed) {
+        eliminarAJAX_Pago();
+
+        Swal.fire(
+        'Eliminado!',
+        'En breves notara los cambios.',
+        'success'
+        )
+        } 
+    })
+    }
+
+    function eliminarAJAX_Pago() {
+        $.ajax({
+            url: "/eliminarPago_"+idSelect,
+            /* type: 'POST', */
+            success: function(result) {
+                location.reload();
+                /* $('#tablaEncargados').DataTable().ajax.reload(); */ ///Revisar despues, por que no se quiere actualizar
+            }
+        });
+    }
+
+    </script>
+
+<script>
+
+    $(document).ready(function () {
+        $('#tablaPagos').DataTable();
+    });
+
+    </script>
+
+@endsection
+
 

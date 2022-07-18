@@ -10,6 +10,7 @@ use App\Models\Matricula;
 use Illuminate\Http\Request;
 use App\Models\Suscripcione;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class MatriculaController extends Controller
 {
@@ -21,9 +22,17 @@ class MatriculaController extends Controller
 
     } */
 
-    public function index(){
+    public function index(Request $request){
 
-        $matriculas= Matricula::all();
+        
+        $nombre = $request->get('buscarpor');
+
+        $matriculas = Matricula::join('estudiantes', 'estudiantes.id_estudiante', '=', 'matriculas.id_estudiante')
+        ->where('estudiantes.nombre', 'like', "%$nombre%")
+        ->paginate(6);                            
+
+        /* $matriculas = Matricula::where('id_estudiante.nombre','like',"%$nombre%")->paginate(6); */
+
         return view('Admin.institucion.matricula', compact('matriculas'));
     }
 
@@ -51,6 +60,7 @@ class MatriculaController extends Controller
         $matricula->id_encargado=$request->encargado;
         $matricula->id_grado=$request->grado;
         $matricula->fecha=$request->fecha;
+
         $matricula->save();
 
         return back();
@@ -77,4 +87,21 @@ class MatriculaController extends Controller
 
         return back();
     }
+
+    public function updateFoto(Request $request, $id)
+    {
+        $matricula = Matricula::find($id);
+        
+        if ($request->hasFile('file')){
+            $archivo = $request->file->store('imagenes', 'public');
+            $url = Storage::url($archivo);
+        }
+
+        $matricula->foto =  $url;
+        $matricula->save();
+
+        return back();
+    }
+
+    
 }

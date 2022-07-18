@@ -11,18 +11,16 @@
 @section('contenidoInstitucion')
 
 
-<div id="id_regresar">
-<a href="{{route('matriculas')}}" id="b_regresar" >
-<i class="fas fa-arrow-circle-left"></i> Atrás</button></a>
-</div>
 
-<hr>
+
+
 <div class="container">
-
-
-
     <div class="row">
 
+        <div id="id_regresar">
+            <a href="{{route('matriculas')}}" id="b_regresar" >
+            <i class="fas fa-arrow-circle-left"></i> Atrás</button></a>
+            </div>
     <div class="col-1"></div>
 
 <div class="col-10">
