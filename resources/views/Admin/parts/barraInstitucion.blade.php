@@ -3,7 +3,7 @@
 <ul id="sidebarnav">
     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
             href="{{route('inicio')}}" aria-expanded="false"><i class="fas fa-university"></i><span
-                class="hide-menu">Institucion</span></a></li>
+                class="hide-menu">Institución</span></a></li>
 
     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
             href="{{route('estudiantes')}}" aria-expanded="false"><i class="fas fa-user-graduate"></i><span
@@ -16,7 +16,7 @@
 
     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
             href="{{route('matriculas')}}" aria-expanded="false"><i class="fas fa-cabinet-filing"></i><span
-                class="hide-menu">Matriculas</span></a></li>
+                class="hide-menu">Matrículas</span></a></li>
 
     <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
             href="{{route('pagos')}}" aria-expanded="false"><i class="fas fa-money-check-edit-alt"></i><span

@@ -34,7 +34,7 @@
 <div class="card">
                     <div class="card-header">
 
-                        <h4 class="card-title">Editar Estudiantes</h4>
+                        <h4 class="card-title">Editar Estudiante</h4>
                                     
                     </div>
 
