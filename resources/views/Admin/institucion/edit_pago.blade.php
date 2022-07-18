@@ -46,55 +46,39 @@
               <div class="card-body">
 
 
-                  <form action="" enctype="multipart/form-data"
-                      class="form-group p-2 form-grid" method="POST">
-                      @csrf
+                <form id="formActualizarPago">
+                    @csrf
 
-                      <div class="form-inline col-mb-5 px-2 ">
-                          <label class="form-label mb-4" >Estudiante</label>
-                          
-                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
-                                <option selected>-Seleccione-</option>
-                                <option value="1">Yansineth Vargas Bustos</option>
-                                <option value="2">Ian Quesada Rojas</option>
-                                <option value="3">Gerald Ramirez Hernadez</option>
-                            </select>
-                       
-                      </div>
-                      <hr>
+                    <div class="form-inline col-mb-5 px-2 ">
+                        <label class="form-label mb-4" >Estudiantes Matriculados</label>
+                        
+                        <select style="width:190px" class="form-select form-control mb-4 ml-3 " id="matricula">
+                        <option value="{{$pago->matricula->id_matricula}}">{{$pago->matricula->estudiante->nombre}}</option>
+                            @foreach ($matriculas as $item)
+                              <option value="{{$item->id_matricula}}">{{$item->estudiante->nombre}}</option>
+                          @endforeach
+                      </select>
+                     
+                    </div>
+                    <hr>
 
+                    <div class="form-inline col-mb-5 px-2">
+                        <label class="form-label mb-4 ">Total</label>
+                        <input type="text" class="form-control mb-3 ml-5" value="{{$pago->total}}" name="total" required>
+                    </div>
+                    <hr>
 
-                      <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4">N° Matrícula</label>
-                          <input type="text" class="form-control mb-3 ml-5"  required>
-                      </div>
-
-                      <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4 ">Total</label>
-                          <input type="text" class="form-control mb-3 ml-5 " name="nombre" required>
-                      </div>
-                      <hr>
-
-                      <div class="form-inline col-mb-5 px-2 ">
-                          <label class="form-label mb-4" >Metodo de pago</label>
-                          
-                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
-                                <option selected>-Seleccione-</option>
-                                <option value="1">Efectivo</option>
-                                <option value="2">Transferencia</option>
-                                <option value="3">Tarjeta</option>
-                            </select>
-                       
-                      </div>
-
-                      <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4 ">Subir comprobante</label>
-                          <input type="file" class="form-control mb-4 ml-2 " name="comprobante" >
-                          </div>
-
-                      
-
-
+                    <div class="form-inline col-mb-5 px-2 ">
+                        <label class="form-label mb-4" >Metodo de pago</label>
+                        
+                        <select style="width:190px" id="metodoPago" class="form-select form-control mb-4 ml-3 " >
+                              <option value="{{$pago->metodo_pago}}" selected>{{$pago->metodo_pago}}</option>
+                              <option value="Efectivo">Efectivo</option>
+                              <option value="Transferencia">Transferencia</option>
+                              <option value="Tarjeta">Tarjeta</option>
+                          </select>
+                     
+                    </div>
 
                       <div class="mx-auto" style="width: 200px;">
                       <div class="text center">  <button type="submit" class="btn btn-sm btn-info" id="b_estudiante" ><i class="fa-solid fa-floppy-disk"></i>Actualizar</button></div>
@@ -122,6 +106,46 @@
 
 </div>
 
+
+
+@endsection
+
+@extends('Admin.parts.partsjs')
+@section('parteJS')
+<script>
+
+    $('#formActualizarPago').submit(function(e){
+        e.preventDefault();
+    
+        var matricula = $("#matricula").val();
+        var total = $("input[name='total']").val();
+        var metodoPago = $("#metodoPago").val();
+    
+        $.ajax({
+            url: "{{route('update_pago', $pago->id_pago)}}",
+            type: "POST",
+    
+            data:{
+                matricula: matricula,
+                total: total,
+                metodoPago: metodoPago,
+                "_token": $("meta[name='csrf-token']").attr("content")
+            },
+            success:function(response){
+                if (response) {
+                    /* $('#formActualizarEstudiante')[0].reset(); */
+                    Swal.fire(
+                        'Actualizado',
+                        'El pago se actualizo correctamente',
+                        'success'
+                        );
+                }
+            }
+        });
+    
+    
+    });
+    </script>
 
 
 @endsection

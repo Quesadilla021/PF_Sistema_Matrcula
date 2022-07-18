@@ -59,7 +59,11 @@ Route::get('/eliminarMat_{id}',[MatriculaController::class, 'destroy'])->name('d
 Route::get('/pago',[PagoController::class, 'index'])->name('pagos');
 Route::get('/insertar_pago',[PagoController::class, 'create'])->name('create_pagos');
 Route::post('/insertarPago',[PagoController::class, 'store'])->name('store_pagos');
-Route::get('/edit_pago',[PagoController::class, 'editar'])->name('editar_pagos');
+Route::get('/edit_pago_{id}',[PagoController::class, 'editar'])->name('editar_pagos');
+Route::post('/update_pago_{id}',[PagoController::class, 'update'])->name('update_pago');
+Route::put('/update_comprobante_{id}',[PagoController::class, 'updateComprobante'])->name('update_comprobante');
+Route::get('/descargarComprobante_{id}',[PagoController::class, 'descargar'])->name('descargar_comprobante');
+
 Route::get('/eliminarPago_{id}',[PagoController::class, 'destroy'])->name('destroy_pago');//delete
 
 Route::get('/reporte_pago',[ReporteController::class, 'reporte'])->name('reporte_pago');

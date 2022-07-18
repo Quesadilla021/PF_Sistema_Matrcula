@@ -7,6 +7,7 @@ use App\Models\Matricula;
 use App\Models\Pago;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PagoController extends Controller
 {
@@ -83,7 +84,16 @@ class PagoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pago = Pago::find($id);
+        
+        $pago->id_tenant=Auth::user()->id_tenant;
+        $pago->id_matricula=$request->matricula;
+        $pago->metodo_pago=$request->metodoPago;
+        $pago->total=$request->total;
+
+        $pago->save();
+
+        return back();
     }
 
     /**
@@ -108,8 +118,32 @@ class PagoController extends Controller
 
 
 
-    public function editar(){
+    public function editar($id){
+        $pago = Pago::find($id);
+        $matriculas = Matricula::all();
+        return view('Admin.institucion.edit_pago', compact('pago','matriculas'));
+    }
 
-        return view('Admin.institucion.edit_pago');
+    public function updateComprobante(Request $request, $id)
+    {
+        $pago = Pago::find($id);
+        
+        if ($request->hasFile('file')){
+            $archivo = $request->file->store('comprobantes', 'public');
+/*             $url = Storage::url($archivo);
+ */        }
+
+        $pago->comprobante =  $archivo;
+        $pago->save();
+
+        return back();
+    }
+
+    public function descargar($id)
+    {
+        $pago = Pago::find($id);
+        /* $pathToFile = storage_path($pago->comprobante) */;
+        return Storage::download('public/'.$pago->comprobante, 'Comprobante.pdf');
+
     }
 }
