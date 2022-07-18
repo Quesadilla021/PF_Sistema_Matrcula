@@ -1,0 +1,67 @@
+#b_estudiante{
+    border: 1px solid #199bfb; /*anchura, estilo y color borde*/
+    padding: 10px; /*espacio alrededor texto*/
+    background-color: #199bfb; /*color botón*/
+    color: #ffffff; /*color texto*/
+    text-decoration: none; /*decoración texto*/
+    text-transform: uppercase; /*capitalización texto*/
+    font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+    border-radius: 15px;
+    font-weight:bold;
+    
+    }
+    
+    #b_regresar{
+      border: 1px solid #247e00; /*anchura, estilo y color borde*/
+      padding: 10px; /*espacio alrededor texto*/
+      background-color: #247e00; /*color botón*/
+      color: #ffffff; /*color texto*/
+      text-decoration: none; /*decoración texto*/
+      text-transform: uppercase; /*capitalización texto*/
+      font-family: 'Nunito Sans', sans-serif; /*tipografía texto*/
+      border-radius: 15px;
+      font-weight:bold;
+      
+      }
+    
+      #b_editar{
+        border: 1px solid #ffbc34; /*anchura, estilo y color borde*/
+        padding: 7px; /*espacio alrededor texto*/
+        background-color: #ffbc34; /*color botón*/
+        border-radius: 5px;
+        
+        }
+        #b_eliminar{
+          border: 1px solid #8d0303; /*anchura, estilo y color borde*/
+          padding: 7px; /*espacio alrededor texto*/
+          background-color: #8d0303; /*color botón*/
+          border-radius: 5px;
+          
+          }
+    #id_estudiante{
+      margin-top: -35px;
+      font-weight:bold;
+    
+    }
+    
+    #id_regresar{
+      margin-top: -35px;
+      font-weight:bold;
+    
+    }
+    
+    .grados{
+      margin-left: 420px;
+      margin-top: -20px;
+      border: 1px solid #148ca1; /*anchura, estilo y color borde*/
+      padding: 10px; /*espacio alrededor texto*/
+      background-color: #148ca1; /*color botón*/
+      color: #ffffff; /*color texto*/
+      text-decoration: none; /*decoración texto*/
+      text-transform: uppercase; /*capitalización texto*/
+      font-family: 'Nunito Sans', sans-serif; /*tipografía texto*/
+      border-radius: 15px;
+      font-weight:bold;
+      
+    
+    }

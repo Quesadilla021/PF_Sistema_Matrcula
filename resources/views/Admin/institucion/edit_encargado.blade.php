@@ -24,86 +24,76 @@
 
     <div class="col-1"></div>
 
-<div class="col-10">
-
-
-
-
-
-
-<div class="card">
-                    <div class="card-header">
-
-                        <h4 class="card-title">Editar Encargado</h4>
-                                    
-                    </div>
-
-                    <div class="card-body">
-
-                    <div class="card card-user">
-              
-              <div class="card-body">
-
-
-                  <form action="" enctype="multipart/form-data"
-                      class="form-group p-2 form-grid" method="POST">
-                      @csrf
-
-                      <div class="form-inline col-mb-5 px-2 ">
-                          <label class="form-label mb-4" >Estudiante</label>
-                          
-                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
-                                <option selected>-Seleccione-</option>
-                                <option value="1">Yansineth Vargas Bustos</option>
-                                <option value="2">Ian Quesada Rojas</option>
-                                <option value="3">Gerald Ramirez Hernadez</option>
-                            </select>
+    <div class="col-10">
+        <div class="card">
+                            <div class="card-header">
+        
+                                <h4 class="card-title">Formulario de Estudiantes</h4>
+                                            
+                            </div>
+        
+                            <div class="card-body">
+        
+                            <div class="card card-user">
+                      
+                      <div class="card-body">
+        
+        
+                          <form id="formActualizarEncargado">
+        
+                            <div class="form-inline col-mb-5 px-2 ">
+                                <label class="form-label mb-4" >Estudiante</label>
+                                <select style="width:190px" class="form-select form-control mb-4 ml-3 " id="estudiantes" name="estudiantes">
+                                    <option value="{{$encargado->estudiante->id_estudiante}}">{{$encargado->estudiante->nombre}}</option>
+                                    @foreach ($estudiantes as $item)
+                                        <option value="{{$item->id_estudiante}}">{{$item->nombre}}</option>
+                                    @endforeach
+                                </select>
+        
+                            </div>
+        
+                              
+                              <div class="form-inline col-mb-5 px-2">
+                                  <label class="form-label mb-4">Cedula</label>
+                                  <input type="text" class="form-control mb-3 ml-5" name="cedula" value='{{$encargado->cedula}}' required>
+                              </div>
+        
+                              <div class="form-inline col-mb-5 px-2">
+                                  <label class="form-label mb-4 ">Nombre</label>
+                                  <input type="text" class="form-control mb-3 ml-5 " name="nombre" value='{{$encargado->nombre}}' required>
+                            
+        
+                                  <label class="form-label mb-4 ml-3" >Apellidos</label>
+                                  <input type="text" class="form-control mb-4 ml-4 " name="apellidos" value='{{$encargado->apellidos}}' required>
+                              </div>
+        
+                              <div class="form-inline col-mb-5 px-2">
+                                  <label class="form-label mb-4 ">Fecha de Nacimiento</label>
+                                  <input type="date" class="form-control mb-4 ml-2 " name="fecha_nacimiento" value='{{$encargado->fecha_nacimiento}}' required>
+                                </div>
+        
+                              <div class="form-inline col-mb-5 px-2 ">
+                                  <label class="form-label mb-4 ">Direccion</label>
+                                  <input type="text" class="form-control mb-4 ml-3" name="direccion" value='{{$encargado->direccion}}'>
+                                 
+                                </div>
+        
+                              <div class="mx-auto" style="width: 200px;">
+                              <div class="text center">  <button type="submit" class="btn btn-sm btn-info" id="b_estudiante" ><i class="fa-solid fa-floppy-disk"></i> Guardar</button></div>
+                              </div>
+                          </form>
+        
                        
                       </div>
-
-                      <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4">Cedula  </label>
-                          <input type="text" class="form-control mb-3 ml-5" name="cedula" required>
-                      </div>
-
-                      <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4 ">Nombre</label>
-                          <input type="text" class="form-control mb-3 ml-5 " name="nombre" required>
-                    
-
-                          <label class="form-label mb-4 ml-3" >Apellidos</label>
-                          <input type="text" class="form-control mb-4 ml-4 " name="apellidos" required>
-                      </div>
-
-
-
-                      <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4 ">Fecha de Nacimiento</label>
-                          <input type="date" class="form-control mb-4 ml-2 " name="fecha_nacimiento" required>
-                          </div>
-
-                          <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4 " >Dirección</label>
-                            <textarea name="direccion" class="form-control mb-4 ml-5" cols="60" rows="3"></textarea>
-                      </div>
-                      
-
-                      <div class="mx-auto" style="width: 200px;">
-                      <div class="text center">  <button type="submit" class="btn btn-sm btn-info" id="b_estudiante" ><i class="fa-solid fa-floppy-disk"></i> Actualizar</button></div>
-                      </div>
-                  </form>
-
-               
-              </div>
-              <hr>
-               <br>
-          </div>
-
-
-            </div>
-
-             </div>
-</div>
+                      <hr>
+                       <br>
+                  </div>
+        
+        
+                    </div>
+        
+                     </div>
+        </div>
 
 
 
@@ -113,7 +103,51 @@
 </div>
 
 </div>
+@endsection
 
+
+@extends('Admin.parts.partsjs')
+@section('parteJS')
+<script>
+
+    $('#formActualizarEncargado').submit(function(e){
+        e.preventDefault();
+    
+        var cedula = $("input[name='cedula']").val();
+        var nombre = $("input[name='nombre']").val();
+        var apellidos = $("input[name='apellidos']").val();
+        var fecha_nacimiento = $("input[name='fecha_nacimiento']").val();
+        var direccion = $("input[name='direccion']").val();
+        var estudiantes = $("#estudiantes").val();
+    
+        $.ajax({
+            url: "{{route('update_encargado', $encargado->id_encargado)}}",
+            type: "POST",
+    
+            data:{
+                cedula: cedula,
+                nombre: nombre,
+                apellidos: apellidos,
+                fecha_nacimiento: fecha_nacimiento,
+                direccion: direccion,
+                estudiantes: estudiantes,
+                "_token": $("meta[name='csrf-token']").attr("content")
+            },
+            success:function(response){
+                if (response) {
+                    /* $('#formActualizarEstudiante')[0].reset(); */
+                    Swal.fire(
+                        'Actualizado',
+                        'El estudiante se actualizo correctamente',
+                        'success'
+                        );
+                }
+            }
+        });
+    
+    
+    });
+    </script>
 
 
 @endsection
