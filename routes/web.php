@@ -36,19 +36,35 @@ BORRAR METODOS PROVICIONALES AL FINAL DE LOS CONTROLADORES*/
 
 Route::get('/estudiantes',[EstudianteController::class, 'index'])->name('estudiantes');
 Route::get('/insertar_estudiante',[EstudianteController::class, 'create'])->name('create_estudiantes');
-Route::get('/edit_estudiante',[EstudianteController::class, 'editar'])->name('editar_estudiantes');
+Route::post('/insertarEst',[EstudianteController::class, 'store'])->name('store_estudiantes');
+Route::get('/edit_estudiante_{id}',[EstudianteController::class, 'editar'])->name('editar_estudiantes');
+Route::post('/update_estudiante_{id}',[EstudianteController::class, 'update'])->name('update_estudiantes');
+Route::get('/eliminarEst_{id}',[EstudianteController::class, 'destroy'])->name('destroy_estudiantes');//delete
 
 Route::get('/encargados',[EncargadoController::class, 'index'])->name('encargados');
 Route::get('/insertar_encargado',[EncargadoController::class, 'create'])->name('create_encargado');
-Route::get('/edit_encargado',[EncargadoController::class, 'editar'])->name('editar_encargados');
+Route::post('/insertarEnc',[EncargadoController::class, 'store'])->name('store_encargado');
+Route::get('/edit_encargado_{id}',[EncargadoController::class, 'editar'])->name('editar_encargados');
+Route::post('/update_encargado_{id}',[EncargadoController::class, 'update'])->name('update_encargado');
+Route::get('/eliminarEnc_{id}',[EncargadoController::class, 'destroy'])->name('destroy_encargados');//delete
 
 Route::get('/matricula',[MatriculaController::class, 'index'])->name('matriculas');
 Route::get('/insertar_matricula',[MatriculaController::class, 'create'])->name('create_matriculas');
-Route::get('/edit_matricula',[MatriculaController::class, 'editar'])->name('editar_matriculas');
+Route::post('/insertarMat',[MatriculaController::class, 'store'])->name('store_matricula');
+Route::get('/edit_matricula_{id}',[MatriculaController::class, 'editar'])->name('editar_matriculas');
+Route::post('/update_matricula_{id}',[MatriculaController::class, 'update'])->name('update_matricula');
+Route::put('/update_foto_{id}',[MatriculaController::class, 'updateFoto'])->name('update_foto');
+Route::get('/eliminarMat_{id}',[MatriculaController::class, 'destroy'])->name('destroy_matriculas');//delete
 
 Route::get('/pago',[PagoController::class, 'index'])->name('pagos');
 Route::get('/insertar_pago',[PagoController::class, 'create'])->name('create_pagos');
-Route::get('/edit_pago',[PagoController::class, 'editar'])->name('editar_pagos');
+Route::post('/insertarPago',[PagoController::class, 'store'])->name('store_pagos');
+Route::get('/edit_pago_{id}',[PagoController::class, 'editar'])->name('editar_pagos');
+Route::post('/update_pago_{id}',[PagoController::class, 'update'])->name('update_pago');
+Route::put('/update_comprobante_{id}',[PagoController::class, 'updateComprobante'])->name('update_comprobante');
+Route::get('/descargarComprobante_{id}',[PagoController::class, 'descargar'])->name('descargar_comprobante');
+
+Route::get('/eliminarPago_{id}',[PagoController::class, 'destroy'])->name('destroy_pago');//delete
 
 Route::get('/reporte_pago',[ReporteController::class, 'reporte'])->name('reporte_pago');
 

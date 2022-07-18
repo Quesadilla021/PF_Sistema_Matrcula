@@ -3,7 +3,7 @@
 
 <head>
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    <meta charset="utf-8">
+    <meta charset="UTF8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +12,7 @@
     <meta name="description"
         content="Flexy Admin Lite is powerful and clean admin dashboard template, inpired from Bootstrap Framework">
     <meta name="robots" content="noindex,nofollow">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('titulo')</title>
     
     @include('Admin.parts.partscss')
@@ -157,7 +158,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-            
+                                        
                                     @yield('contenidoAdministrador')
     
                                 </div>
@@ -185,16 +186,54 @@
 
         @endif
     </div>
-
-
-
-            </div>
-
-          
-
+            </div>       
         </div>
-
     </div>
+
+    
+
+<script>
+    var idSelect;
+
+    function eliminarEst_Alerta(id) {
+        idSelect = id;
+        console.log(idSelect);
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+
+        }).then((result) => {
+    if (result.isConfirmed) {
+        eliminarAJAX();
+
+        Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+        )
+        } 
+      })
+    }
+
+    function eliminarAJAX() {
+        $.ajax({
+            url: "/eliminarEst_"+idSelect,
+            /* type: 'POST', */
+            success: function(result) {
+                location.reload();
+                /* $('#tabla').DataTable().ajax.reload(); */ ///Revisar despues, por que no se quiere actualizar
+            }
+        });
+    }
+</script>
+
+
+
 
 
     @include('Admin.parts.partsjs')

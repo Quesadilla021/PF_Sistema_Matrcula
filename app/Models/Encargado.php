@@ -11,5 +11,9 @@ class Encargado extends Model
     protected $primaryKey = 'id_encargado';
     public $timestamps = false;
  
+    public function estudiante(){
+        return $this->belongsTo(Estudiante::class, 'id_estudiante');
+    }
+
     use HasFactory;
 }

@@ -14,13 +14,7 @@
     <script src="../assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
     <script src="../dist/js/pages/dashboards/dashboard1.js"></script>
 
-    <script>
 
-    $(document).ready(function () {
-        $('#example').DataTable();
-    });
-
-    </script>
 
 <script>
             $(document).ready(function() {
@@ -56,33 +50,4 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>    
 
-    <script type="text/javascript">
-
-        function mostrar() {
-            
-            let timerInterval
-                Swal.fire({
-                title: 'Auto close alert!',
-                html: 'I will close in <b></b> milliseconds.',
-                timer: 2000,
-                timerProgressBar: true,
-                didOpen: () => {
-                    Swal.showLoading()
-                    const b = Swal.getHtmlContainer().querySelector('b')
-                    timerInterval = setInterval(() => {
-                    b.textContent = Swal.getTimerLeft()
-                    }, 100)
-                },
-                willClose: () => {
-                    clearInterval(timerInterval)
-                }
-                }).then((result) => {
-                /* Read more about handling dismissals below */
-                if (result.dismiss === Swal.DismissReason.timer) {
-                    console.log('I was closed by the timer')
-                }
-                })
-
-        }
-
-    </script>
+    @yield('parteJS')

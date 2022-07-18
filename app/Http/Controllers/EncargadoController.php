@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Encargado;
+use App\Models\Estudiante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EncargadoController extends Controller
 {
@@ -26,7 +28,8 @@ class EncargadoController extends Controller
      */
     public function create()
     {
-        return view('Admin.institucion.insertar_encargado');
+        $estudiantes=Estudiante::all();
+        return view('Admin.institucion.insertar_encargado', compact('estudiantes'));
     }
 
     /**
@@ -37,7 +40,18 @@ class EncargadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $encargado = new  Encargado();
+        
+        $encargado->id_tenant=Auth::user()->id_tenant;
+        $encargado->id_estudiante=$request->estudiantes;
+        $encargado->cedula=$request->cedula;
+        $encargado->nombre=$request->nombre;
+        $encargado->apellidos=$request->apellidos;
+        $encargado->direccion=$request->direccion;
+        $encargado->fecha_nacimiento=$request->fecha_nacimiento;
+        $encargado->save();
+
+        return back();
     }
 
     /**
@@ -71,7 +85,17 @@ class EncargadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $encargado = Encargado::find($id);
+        
+        $encargado->id_estudiante=$request->estudiantes;
+        $encargado->cedula=$request->cedula;
+        $encargado->nombre=$request->nombre;
+        $encargado->apellidos=$request->apellidos;
+        $encargado->direccion=$request->direccion;
+        $encargado->fecha_nacimiento=$request->fecha_nacimiento;
+        $encargado->save();
+
+        return back();
     }
 
     /**
@@ -82,7 +106,10 @@ class EncargadoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Encargado::find($id);
+        $data->delete();
+
+        return back();
     }
 
 
@@ -92,9 +119,12 @@ class EncargadoController extends Controller
      * SON METODOS SOLO PARA VERIFICAR LAS PANTALLAS, QUITAR PARA CONECTAR BIEN LA GRAFICA CCON EL STORE UPDATE Y ESOS
      *
      */
-    public function editar(){
+    public function editar($id){
 
-        return view('Admin.institucion.edit_encargado');
+        $encargado = Encargado::find($id);
+        $estudiantes=Estudiante::all();
+
+        return view('Admin.institucion.edit_encargado', compact('encargado', 'estudiantes'));
     }
 
 }

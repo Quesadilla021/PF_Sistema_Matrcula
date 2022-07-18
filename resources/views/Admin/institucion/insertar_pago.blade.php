@@ -46,54 +46,43 @@
               <div class="card-body">
 
 
-                  <form action="" enctype="multipart/form-data"
-                      class="form-group p-2 form-grid" method="POST">
+                  <form id="formPago">
                       @csrf
 
                       <div class="form-inline col-mb-5 px-2 ">
-                          <label class="form-label mb-4" >Estudiante</label>
+                          <label class="form-label mb-4" >Estudiantes Matriculados</label>
                           
-                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
-                                <option selected>-Seleccione-</option>
-                                <option value="1">Yansineth Vargas Bustos</option>
-                                <option value="2">Ian Quesada Rojas</option>
-                                <option value="3">Gerald Ramirez Hernadez</option>
-                            </select>
+                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " id="matricula">
+                            @foreach ($matriculas as $item)
+                                <option value="{{$item->id_matricula}}">{{$item->estudiante->nombre}}</option>
+                            @endforeach
+                        </select>
                        
                       </div>
                       <hr>
 
-
-                      <div class="form-inline col-mb-5 px-2">
-                          <label class="form-label mb-4">N° Matrícula</label>
-                          <input type="text" class="form-control mb-3 ml-5"  required>
-                      </div>
-
                       <div class="form-inline col-mb-5 px-2">
                           <label class="form-label mb-4 ">Total</label>
-                          <input type="text" class="form-control mb-3 ml-5 " name="nombre" required>
+                          <input type="text" class="form-control mb-3 ml-5 "name="total" required>
                       </div>
                       <hr>
 
                       <div class="form-inline col-mb-5 px-2 ">
                           <label class="form-label mb-4" >Metodo de pago</label>
                           
-                          <select style="width:190px" class="form-select form-control mb-4 ml-3 " >
+                          <select style="width:190px" id="metodoPago" class="form-select form-control mb-4 ml-3 " >
                                 <option selected>-Seleccione-</option>
-                                <option value="1">Efectivo</option>
-                                <option value="2">Transferencia</option>
-                                <option value="3">Tarjeta</option>
+                                <option value="Efectivo">Efectivo</option>
+                                <option value="Transferencia">Transferencia</option>
+                                <option value="Tarjeta">Tarjeta</option>
                             </select>
                        
                       </div>
 
-                      <div class="form-inline col-mb-5 px-2">
+{{--                       <div class="form-inline col-mb-5 px-2">
                           <label class="form-label mb-4 ">Subir comprobante</label>
                           <input type="file" class="form-control mb-4 ml-2 " name="comprobante" >
-                          </div>
-
-                      
-
+                          </div> --}}
 
 
                       <div class="mx-auto" style="width: 200px;">
@@ -121,7 +110,46 @@
 </div>
 
 </div>
+@endsection
 
+@extends('Admin.parts.partsjs')
+@section('parteJS')
+    
+<script>
 
+    $('#formPago').submit(function(e){
+        e.preventDefault();
+    
+        var matricula = $("#matricula").val();
+        var total = $("input[name='total']").val();
+        var metodoPago = $("#metodoPago").val();
+
+    
+        $.ajax({
+            url: "{{route('store_pagos')}}",
+            type: "POST",
+    
+            data:{
+                matricula: matricula,
+                total: total,
+                metodoPago: metodoPago,
+                "_token": $("meta[name='csrf-token']").attr("content")
+            },
+            success:function(response){
+                if (response) {
+                    $('#formPago')[0].reset();
+                    Swal.fire(
+                        'Registrado',
+                        'El pago se registro correctamente',
+                        'success'
+                        );
+                }
+            }
+        });
+    
+    
+    });
+    </script>
+    
 
 @endsection

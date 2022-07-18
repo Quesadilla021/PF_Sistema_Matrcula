@@ -17,6 +17,13 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    
+    protected $table = 'suscripciones';
+    protected $primaryKey = 'id_tenant';
+    public $timestamps = false;
+
+
     protected $fillable = [
         'name',
         'email',
