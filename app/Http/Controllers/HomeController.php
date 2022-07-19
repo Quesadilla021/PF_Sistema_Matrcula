@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Grado;
+use App\Models\Matricula;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,7 +30,8 @@ class HomeController extends Controller
         if (Auth::user()->rol == 'Admin') {
             return view('Admin.administrador.inicio');
         }
-            return view('Admin.institucion.inicio');
-
+        $matriculas = Auth::user()->matriculas;
+        $grados = Grado::all();
+        return view('Admin.institucion.inicio', compact('matriculas', 'grados'));
     }
 }
