@@ -30,13 +30,12 @@
     
                     <thead class="table-dark">
                         <tr>
-                            <th>ESTUDIANTE</th>
+                            <th>NOMBRE COMPLETO</th>
                             <th>CEDULA</th>
-                            <th>NOMBRE</th>
-                            <th>APELLIDOS</th>
                             <th>F_NACIMIENTO</th>
-                            {{-- <th>TELEFONO</th> --}}
+                            <th>TELEFONO</th>
                             <th>DIRECCION</th>
+                            <th>ESTUDIANTE</th>
                           
                             <th>OPCIONES</th>
                          
@@ -47,15 +46,13 @@
                   @foreach ($encargados as $item)
                       
                         <tr>
-                   
-                            <td>{{$item->estudiante->nombre}}</td>
+                            <td>{{$item->nombre}} {{$item->apellidos}}</td>
                             <td>{{$item->cedula}}</td>
-                            <td>{{$item->nombre}}</td>
-                            <td>{{$item->apellidos}}</td>
                             <td>{{$item->fecha_nacimiento}}</td>
-                            {{-- <td>{{$item->telefono}}</td> --}}
+                            <td>{{$item->telefono}}</td>
                             <td>{{$item->direccion}}</td>
-    
+                            <td>{{$item->estudiante->nombre}} {{$item->estudiante->apellidos}}</td>
+                            
     
                             <td>
                                 {{-- <form id="eliminarEstudiante" method="POST"> --}}

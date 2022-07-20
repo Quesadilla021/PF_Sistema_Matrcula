@@ -47,6 +47,7 @@ class EncargadoController extends Controller
         $encargado->cedula=$request->cedula;
         $encargado->nombre=$request->nombre;
         $encargado->apellidos=$request->apellidos;
+        $encargado->telefono=$request->telefono;
         $encargado->direccion=$request->direccion;
         $encargado->fecha_nacimiento=$request->fecha_nacimiento;
         $encargado->save();
@@ -92,6 +93,7 @@ class EncargadoController extends Controller
         $encargado->nombre=$request->nombre;
         $encargado->apellidos=$request->apellidos;
         $encargado->direccion=$request->direccion;
+        $encargado->telefono=$request->telefono;
         $encargado->fecha_nacimiento=$request->fecha_nacimiento;
         $encargado->save();
 

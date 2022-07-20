@@ -54,21 +54,21 @@
         idSelect = id;
         console.log(idSelect);
         Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Eliminar',
+        text: "Estas seguro de eliminar este encargado",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonText: 'Eliminar!'
 
         }).then((result) => {
     if (result.isConfirmed) {
         eliminarAJAX_Enc();
 
         Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
+        'Eliminado!',
+        'En breves notara los cambios.',
         'success'
         )
         } 

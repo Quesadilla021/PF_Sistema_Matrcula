@@ -33,7 +33,6 @@
                         <tr>
                             <th>CEDULA</th>
                             <th>NOMBRE COMPLETO</th>
-                            <th>TELEFONO</th>
                             <th>F_NACIMIENTO</th>
                             <th>MEDICAMENTOS</th>
                             <th>ENFERMEDADES</th>
@@ -48,7 +47,6 @@
                         <tr>
                             <td>{{$item->cedula}}</td>
                             <td>{{$item->nombre}} {{$item->apellidos}}</td>
-                            <td>{{$item->telefono}}</td>
                             <td>{{$item->fecha_nacimiento}}</td>
                             <td>{{$item->medicamentos}}</td>
                             <td>{{$item->enfermedad}}</td>

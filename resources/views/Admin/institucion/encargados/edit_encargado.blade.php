@@ -72,6 +72,11 @@
                                   <input type="date" class="form-control mb-4 ml-2 " name="fecha_nacimiento" value='{{$encargado->fecha_nacimiento}}' required>
                                 </div>
         
+                                <div class="form-inline col-mb-5 px-2">
+                                    <label class="form-label mb-4">Telefono</label>
+                                    <input type="text" class="form-control mb-3 ml-5" name="telefono" value="{{$encargado->telefono}}"required>
+                                </div>
+
                               <div class="form-inline col-mb-5 px-2 ">
                                   <label class="form-label mb-4 ">Direccion</label>
                                   <input type="text" class="form-control mb-4 ml-3" name="direccion" value='{{$encargado->direccion}}'>
@@ -118,6 +123,7 @@
         var apellidos = $("input[name='apellidos']").val();
         var fecha_nacimiento = $("input[name='fecha_nacimiento']").val();
         var direccion = $("input[name='direccion']").val();
+        var telefono = $("input[name='telefono']").val();
         var estudiantes = $("#estudiantes").val();
     
         $.ajax({
@@ -130,6 +136,7 @@
                 apellidos: apellidos,
                 fecha_nacimiento: fecha_nacimiento,
                 direccion: direccion,
+                telefono: telefono,
                 estudiantes: estudiantes,
                 "_token": $("meta[name='csrf-token']").attr("content")
             },

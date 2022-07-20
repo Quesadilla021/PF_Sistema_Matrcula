@@ -41,6 +41,7 @@
                             <th>ESTUDIANTE</th>
                             <th>CEDULA</th>    
                             <th>N° MATRICULA</th>
+                            <th>TOTAL PAGADO</th>
                             <th>METODO DE PAGO</th>
                             <th>COMPROBANTE</th>
                             <th>OPCIONES</th>
@@ -55,6 +56,13 @@
                             <td>{{$item->matricula->estudiante->nombre}}</td>
                             <td>{{$item->matricula->estudiante->cedula}}</td>
                             <td>{{$item->matricula->id_matricula}}</td>
+                            <td>
+                           @php
+                                $numero = $item->total;
+                                $numeroFormateado = number_format($numero, 2);
+                                echo '₡' . $numeroFormateado;
+                            @endphp
+                            </td>
                             <td>{{$item->metodo_pago}}</td>
 
                             <td>

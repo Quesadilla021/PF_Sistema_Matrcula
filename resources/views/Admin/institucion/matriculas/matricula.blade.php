@@ -58,12 +58,12 @@
             <div class="card" style="width: 16rem;">
                 <img src="{{$foto}}" class="card-img-top" style="width: 16rem; height: 16rem">
                 <div class="container mt-3">
-                    <h5 class="card-title">{{$item->estudiante->nombre}}</h5>
+                    <h5 class="card-title">{{$item->estudiante->nombre}} {{$item->estudiante->apellidos}}</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><b>Encargado:</b>{{$item->encargado->nombre}}</li>
-                  <li class="list-group-item"><b>Grado:</b>{{$item->grado->nombre}}</li>
-                  <li class="list-group-item"><b>Fecha:</b>{{$item->fecha}}</li>
+                  <li class="list-group-item"><b>Encargado: </b>{{$item->encargado->nombre}} {{$item->encargado->apellidos}}</li>
+                  <li class="list-group-item"><b>Grado: </b>{{$item->grado->nombre}}</li>
+                  <li class="list-group-item"><b>Fecha: </b>{{$item->fecha}}</li>
                 </ul>
                 <div class="card-body">
                     <div class="d-grid gap-2">                     

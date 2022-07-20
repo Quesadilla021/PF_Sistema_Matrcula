@@ -10,7 +10,11 @@
       <div id="logo" style="background-color: #555555">
         <img src="{{$path}}/assets/images/am.fw.png">
       </div>
+      @if ($matricula->foto != '')
       <img src="{{$path}}{{$matricula->foto}}" style="width: 10rem; height: 10rem; margin-left: 220px;">
+      @else
+      <img src="{{$path}}/imgs/default.jpg" style="width: 10rem; height: 10rem; margin-left: 220px;">
+      @endif
     </header>
     <main>
       <div id="details" class="clearfix">
@@ -32,79 +36,73 @@
           <h2 class="name">{{$matricula->encargado->nombre}} {{$matricula->encargado->apellidos}}</h2>
           <div class="to">Direccion: </div>
           <h2 class="name">{{$matricula->encargado->direccion}}</h2>
+          <div class="to">Telefono: </div>
+          <h2 class="name">{{$matricula->encargado->telefono}}</h2>
           <div class="to">Fecha de nacimiento: </div>
           <h2 class="name">{{$matricula->encargado->fecha_nacimiento}}</h2>
         </div>
       </div>
-{{--       <table border="0" cellspacing="0" cellpadding="0">
+
+      <h2 class="name">Pagos realizados:</h2>
+
+      <table border="0" cellspacing="0" cellpadding="0">
         <thead>
           <tr>
-            <th class="no">Informacion del vehiculo</th>
+            <th class="no">#</th>
+            <th class="unit">METODO DE PAGO</th>
+            <th class="desc">TOTAL PAGADO</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td class="no">Marca: </td>
-            <td class="desc"><h3>{{$vehiculo->marca->nombre}}</td>
-            <td class="no">Modelo: </td>
-            <td class="desc"><h3>{{$vehiculo->modelo->nombre}}</td>
-          </tr>
-          <tr>
-            <td class="no">Año: </td>
-            <td class="desc"><h3>{{$vehiculo->año}}</td>
-            <td class="no">Cilindraje: </td>
-            <td class="desc"><h3>{{$vehiculo->cilindraje->nombre}}</td>
-          </tr>
-          <tr>
-            <td class="no">Combustible: </td>
-            <td class="desc"><h3>{{$vehiculo->combustible->nombre}}</td>
-            <td class="no">Cilindraje: </td>
-            <td class="desc"><h3>{{$vehiculo->cilindraje->nombre}}</td>
-          </tr>
-          <tr>
-            <td class="no">Color Interior: </td>
-            <td class="desc"><h3>{{$vehiculo->colorInt->nombre}}</td>
-            <td class="no">Color Interior: </td>
-            <td class="desc"><h3>{{$vehiculo->colorExt->nombre}}</td>
-          </tr>
-          <tr>
-            <td class="no">Recibe Cambio: </td>
-            <td class="desc"><h3>@if ($vehiculo->recibe == 1)
-              Si
-          @else
-              No
-          @endif</td>
-            <td class="no">Negociable: </td>
-            <td class="desc"><h3>@if ($vehiculo->negociable == 1)
-              Si
-          @else
-              No
-          @endif</td>
-          </tr>
+
+          @foreach (Auth::user()->pagos as $item)
+              @if ($item->id_matricula == $matricula->id_matricula)
+              <tr>
+                <td class="no">{{$item->id_pago}}</td>
+                <td class="desc">{{$item->metodo_pago}}</td>
+                <td>
+                  @php
+                       $numero = $item->total;
+                       $numeroFormateado = number_format($numero, 2);
+                       echo  $numeroFormateado;
+                   @endphp
+                   </td>
+              </tr>
+              @endif
+          @endforeach
         </tbody>
         <tfoot>
           <tr>
             <td colspan="2"></td>
-            <td colspan="2">Precio: </td>
-            <td>{{$vehiculo->precio}}</td>
+            <td colspan="2">TOTAL FINAL:</td>
+            <td>
+              @php
+                $numero = 0;
+
+              foreach (Auth::user()->pagos as $item) {
+                if ($item->id_matricula == $matricula->id_matricula) {
+                    $numero += $item->total;
+                }
+              }
+                $numeroFormateado = number_format($numero, 2);
+                   echo $numeroFormateado. ' COLONES';
+               @endphp
+               </td>
           </tr>
         </tfoot>
-      </table> --}}
+      </table>
+
+
+
       {{-- <div id="thanks">Thank you!</div>
       <div id="notices">
         <div>NOTICE:</div>
         <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
       </div> --}}
       
-{{--       <div>
-        @foreach ($galeria as $item)
-            <img style="width: 80%" src="{{$path}}/storage/{{$item->foto}}"/>
-          @endforeach
-      </div> --}}
 
     </main>
     <footer>
-      IF4101 - Gerald, Ian, Yansineth, Lissette
     </footer>
   </body>
 
