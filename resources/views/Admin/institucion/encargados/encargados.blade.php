@@ -1,9 +1,5 @@
 @extends('Admin.plantilla')
 
-@section('contenido_titulo')
-   
-@endsection
-
 @section('titulo')
     Encargados
 @endsection
@@ -12,9 +8,7 @@
 
 
 <div class="container-fluid">
-<div class="row">
-    
-
+<div class="row"> 
 
 <hr>
 <div class="col-md-12">
@@ -89,60 +83,10 @@
 </div>
 
 </div>
+</div>
 
 
-@endsection
 
-@extends('Admin.parts.partsjs')
-@section('parteJS')
-<script>
-    var idSelect;
-
-    function eliminarEnc_Alerta(id) {
-        idSelect = id;
-        console.log(idSelect);
-        Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-
-        }).then((result) => {
-    if (result.isConfirmed) {
-        eliminarAJAX_Enc();
-
-        Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
-        'success'
-        )
-        } 
-      })
-    }
-
-    function eliminarAJAX_Enc() {
-        $.ajax({
-            url: "/eliminarEnc_"+idSelect,
-            /* type: 'POST', */
-            success: function(result) {
-                location.reload();
-                /* $('#tablaEncargados').DataTable().ajax.reload(); */ ///Revisar despues, por que no se quiere actualizar
-            }
-        });
-    }
-</script>
-
-<script>
-
-    $(document).ready(function () {
-        $('#tablaEncargados').DataTable();
-    });
-
-    </script>
-    
 @endsection
 
 

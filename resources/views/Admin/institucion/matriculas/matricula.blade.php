@@ -50,7 +50,7 @@
         @php
         $foto = $item->foto;
             if ($item->foto == '') {
-                $foto = '/storage/imagenes/default.jpg';
+                $foto = '/imgs/default.jpg';
             }
         @endphp
 
@@ -134,61 +134,5 @@
 
 </div>
 
-
-@endsection
-
-@extends('Admin.parts.partsjs')
-@section('parteJS')
-    
-    <script>
-
-    var idSelect;
-
-    function eliminarMat_Alerta(id) {
-        idSelect = id;
-        console.log(idSelect);
-        Swal.fire({
-        title: 'Estas seguro?',
-        text: "Deseas borrar esta matricula?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Eliminar'
-
-        }).then((result) => {
-    if (result.isConfirmed) {
-        eliminarAJAX_Mat();
-
-        Swal.fire(
-        'Eliminado!',
-        'En breves notara los cambios.',
-        'success'
-        )
-        } 
-    })
-    }
-
-    function eliminarAJAX_Mat() {
-        $.ajax({
-            url: "/eliminarMat_"+idSelect,
-            /* type: 'POST', */
-            success: function(result) {
-                location.reload();
-                /* $('#tablaEncargados').DataTable().ajax.reload(); */ ///Revisar despues, por que no se quiere actualizar
-            }
-        });
-    }
-
-    </script>
-
-<script>
-
-    $(document).ready(function () {
-        $('#tablaMatriculas').DataTable();
-    });
-
-    </script>
-    
 
 @endsection

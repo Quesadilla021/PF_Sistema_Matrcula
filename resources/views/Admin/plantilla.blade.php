@@ -93,28 +93,27 @@
                     <ul class="navbar-nav float-end">
 
                         <li class="nav-item dropdown">
-                            <div class="d-flex">
-                                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="../assets/images/users/escuela.png" alt="user" class="rounded-circle" width="31">
-                                    {{ Auth::user()->name }}
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../assets/images/users/escuela.png" alt="user" class="rounded-circle" width="31">
+                                {{ Auth::user()->name }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                              <li>
+
+                                <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                    {{ __('Cerrar Sesion') }}
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
-                                        My Profile</a>
-                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i>
-                                        My Balance</a>
-                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>
-                                        Inbox</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                                            {{ __('Cerrar Sesion') }}
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
-                                </ul>
-                            </div> 
-                        </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+
+                              </li>
+                            </ul>
+                          </li>
+
+
 
                     </ul>
                 </div>
@@ -142,13 +141,7 @@
 
                 <div class="page-wrapper">
 
-                    <div class="page-breadcrumb">
-                        <div class="row align-items-center">
-                            <div class="col-6">
-                                <h1 class="mb-0 fw-bold">@yield('contenido_titulo')</h1> 
-                            </div>   
-                        </div>
-                    </div>
+
 
         @if ($admin){{--  ES ADMIN --}}
             

@@ -44,6 +44,210 @@
             });
         </script>
 
+
+{{---------------------------------Encargados---------------------------------}}
+
+<script>
+    var idSelect;
+
+    function eliminarEnc_Alerta(id) {
+        idSelect = id;
+        console.log(idSelect);
+        Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+
+        }).then((result) => {
+    if (result.isConfirmed) {
+        eliminarAJAX_Enc();
+
+        Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+        )
+        } 
+      })
+    }
+
+    function eliminarAJAX_Enc() {
+        $.ajax({
+            url: "/eliminarEnc_"+idSelect,
+            /* type: 'POST', */
+            success: function(result) {
+                location.reload();
+                /* $('#tablaEncargados').DataTable().ajax.reload(); */ ///Revisar despues, por que no se quiere actualizar
+            }
+        });
+    }
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        $('#tablaEncargados').DataTable();
+    });
+
+    </script>
+
+{{---------------------------------Matriculas---------------------------------}}
+
+<script>
+
+    var idSelect;
+
+    function eliminarMat_Alerta(id) {
+        idSelect = id;
+        console.log(idSelect);
+        Swal.fire({
+        title: 'Estas seguro?',
+        text: "Deseas borrar esta matricula?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Eliminar'
+
+        }).then((result) => {
+    if (result.isConfirmed) {
+        eliminarAJAX_Mat();
+
+        Swal.fire(
+        'Eliminado!',
+        'En breves notara los cambios.',
+        'success'
+        )
+        } 
+    })
+    }
+
+    function eliminarAJAX_Mat() {
+        $.ajax({
+            url: "/eliminarMat_"+idSelect,
+            /* type: 'POST', */
+            success: function(result) {
+                location.reload();
+                /* $('#tablaEncargados').DataTable().ajax.reload(); */ ///Revisar despues, por que no se quiere actualizar
+            }
+        });
+    }
+
+    </script>
+
+<script>
+
+    $(document).ready(function () {
+        $('#tablaMatriculas').DataTable();
+    });
+
+    </script>
+
+{{---------------------------------Grados---------------------------------}}
+
+<script>
+
+    $(document).ready(function () {
+        $('#tablaMatriculasinicio').DataTable();
+    });
+
+    </script>
+
+<script>
+
+    $('#formGrado').submit(function(e){
+        e.preventDefault();
+    
+        var grado = $("#grado").val();
+        var cupo = $("input[name='cupo']").val();
+
+        /* console.log("/update_grado_"+grado); */
+    
+        $.ajax({
+            url: "/update_grado_"+grado,
+            type: "POST",
+    
+            data:{
+                grado: grado,
+                cupo: cupo,
+                "_token": $("meta[name='csrf-token']").attr("content")
+            },
+            success:function(response){
+                if (response) {
+                    $('#formGrado')[0].reset(); 
+                    Swal.fire(
+                        'Actualizado',
+                        'El cupo se asigno correctamente',
+                        'success'
+                        );
+                }
+            }
+        });
+    
+    
+    });
+    
+    </script>
+
+{{---------------------------------Pagos---------------------------------}}
+
+<script>
+
+    var idSelect;
+
+    function eliminarPago_Alerta(id) {
+        idSelect = id;
+        console.log(idSelect);
+        Swal.fire({
+        title: 'Estas seguro?',
+        text: "Deseas borrar este pago?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Eliminar'
+
+        }).then((result) => {
+    if (result.isConfirmed) {
+        eliminarAJAX_Pago();
+
+        Swal.fire(
+        'Eliminado!',
+        'En breves notara los cambios.',
+        'success'
+        )
+        } 
+    })
+    }
+
+    function eliminarAJAX_Pago() {
+        $.ajax({
+            url: "/eliminarPago_"+idSelect,
+            /* type: 'POST', */
+            success: function(result) {
+                location.reload();
+                /* $('#tablaEncargados').DataTable().ajax.reload(); */ ///Revisar despues, por que no se quiere actualizar
+            }
+        });
+    }
+
+    </script>
+
+<script>
+
+    $(document).ready(function () {
+        $('#tablaPagos').DataTable();
+    });
+
+    </script>
+
+
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>

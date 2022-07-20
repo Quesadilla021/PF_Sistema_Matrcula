@@ -1,16 +1,10 @@
 @extends('Admin.plantilla')
 
-@section('contenido_titulo')
-   
-@endsection
-
 @section('titulo')
     Estudiantes
 @endsection
 
 @section('contenidoInstitucion')
-
-
 
 <div class="container-fluid">
 <div class="row">

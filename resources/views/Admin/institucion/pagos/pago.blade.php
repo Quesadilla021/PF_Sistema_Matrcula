@@ -129,59 +129,5 @@
 
 @endsection
 
-@extends('Admin.parts.partsjs')
-@section('parteJS')
-    
-    <script>
-
-    var idSelect;
-
-    function eliminarPago_Alerta(id) {
-        idSelect = id;
-        console.log(idSelect);
-        Swal.fire({
-        title: 'Estas seguro?',
-        text: "Deseas borrar este pago?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Eliminar'
-
-        }).then((result) => {
-    if (result.isConfirmed) {
-        eliminarAJAX_Pago();
-
-        Swal.fire(
-        'Eliminado!',
-        'En breves notara los cambios.',
-        'success'
-        )
-        } 
-    })
-    }
-
-    function eliminarAJAX_Pago() {
-        $.ajax({
-            url: "/eliminarPago_"+idSelect,
-            /* type: 'POST', */
-            success: function(result) {
-                location.reload();
-                /* $('#tablaEncargados').DataTable().ajax.reload(); */ ///Revisar despues, por que no se quiere actualizar
-            }
-        });
-    }
-
-    </script>
-
-<script>
-
-    $(document).ready(function () {
-        $('#tablaPagos').DataTable();
-    });
-
-    </script>
-
-@endsection
 
 
