@@ -23,6 +23,27 @@ class User extends Authenticatable
     protected $primaryKey = 'id_tenant';
     public $timestamps = false;
 
+    public function matriculas()
+    {
+        return $this->hasMany(Matricula::class, 'id_tenant');
+    }
+
+    public function estudiantes()
+    {
+        return $this->hasMany(Estudiante::class, 'id_tenant');
+    }
+
+    public function encargados()
+    {
+        return $this->hasMany(Encargado::class, 'id_tenant');
+    }
+
+    public function pagos()
+    {
+        return $this->hasMany(Pago::class, 'id_tenant');
+    }
+
+
 
     protected $fillable = [
         'name',

@@ -16,8 +16,8 @@ class EstudianteController extends Controller
      */
     public function index()
     {
-        $estudiantes= Estudiante::all();
-        return view('Admin.institucion.estudiante', compact('estudiantes'));
+        $estudiantes= Auth::user()->estudiantes;
+        return view('Admin.institucion.estudiantes.estudiante', compact('estudiantes'));
     }
 
     /**
@@ -27,7 +27,7 @@ class EstudianteController extends Controller
      */
     public function create()
     {
-        return view('Admin.institucion.insertar_estudiante');
+        return view('Admin.institucion.estudiantes.insertar_estudiante');
     }
 
     /**
@@ -122,7 +122,7 @@ class EstudianteController extends Controller
 
         $estudiante = Estudiante::find($id);
 
-        return view('Admin.institucion.edit_estudiante', compact('estudiante'));
+        return view('Admin.institucion.estudiantes.edit_estudiante', compact('estudiante'));
     }
 
 

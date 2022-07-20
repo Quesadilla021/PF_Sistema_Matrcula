@@ -55,6 +55,7 @@ Route::get('/edit_matricula_{id}',[MatriculaController::class, 'editar'])->name(
 Route::post('/update_matricula_{id}',[MatriculaController::class, 'update'])->name('update_matricula');
 Route::put('/update_foto_{id}',[MatriculaController::class, 'updateFoto'])->name('update_foto');
 Route::get('/eliminarMat_{id}',[MatriculaController::class, 'destroy'])->name('destroy_matriculas');//delete
+Route::get('/pdf_{id}', [MatriculaController::class, 'pdfDescargar'])->name('pdf');
 
 Route::get('/pago',[PagoController::class, 'index'])->name('pagos');
 Route::get('/insertar_pago',[PagoController::class, 'create'])->name('create_pagos');
@@ -65,6 +66,7 @@ Route::put('/update_comprobante_{id}',[PagoController::class, 'updateComprobante
 Route::get('/descargarComprobante_{id}',[PagoController::class, 'descargar'])->name('descargar_comprobante');
 
 Route::get('/eliminarPago_{id}',[PagoController::class, 'destroy'])->name('destroy_pago');//delete
+
 
 Route::get('/reporte_pago',[ReporteController::class, 'reporte'])->name('reporte_pago');
 
@@ -78,7 +80,11 @@ Route::get('/edit_grados',[AdminController::class, 'editar_grado'])->name('editg
 /* RUTAS PROVICIONALES QUITAR SI SON NECESARIAS PARA CONECTAR CON LOS METODOS DE LOS CONTROLADORES LAS DE ARRIBA*/
 
 
-Route::get('/inicio',[AdminController::class, 'inicio'])->name('inicio');
+Route::get('/inicio',[MatriculaController::class, 'inicio'])->name('inicio');
+Route::post('/update_grado_{id}',[MatriculaController::class, 'updateGrado'])->name('update_grado');
+
+
+
 
 
 

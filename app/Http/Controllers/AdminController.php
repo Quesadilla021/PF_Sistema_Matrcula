@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Grado;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -25,8 +26,9 @@ class AdminController extends Controller
 
     public function grado()
     {
-
-        return view('Admin.administrador.grados');
+        $grados = Grado::orderBy('id_grado', 'desc')->get();
+        
+        return view('Admin.administrador.grados', compact('grados'));
     }
 
     
