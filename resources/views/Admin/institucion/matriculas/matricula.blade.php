@@ -32,49 +32,7 @@
                     </div>
                 </div>
     {{--
-                <div class="card-body">
-                <div class="table-responsive-lg">
-                    <table class="table table-striped" id="tablaMatriculas">
-    
-                    <thead class="table-dark">
-                        <tr>
-                            <th>ESTUDIANTE</th>
-                            <th>ENCARGADO</th>
-                            <th>GRADO</th>
-                            <th>FECHA MATRICULA</th>
-                            <th>OPCIONES</th>
-                         
-                        </tr>
-                    </thead>
-    
-                    <tbody>
-                        @foreach ($matriculas as $item)                        
-                        <tr>
-                            <td>{{$item->estudiante->nombre}}</td>
-                            <td>{{$item->encargado->nombre}}</td>
-                            <td>{{$item->grado->nombre}}</td>
-                            <td>{{$item->fecha}}</td>
 
-                            <td>
-                                    <a href="{{route('editar_matriculas', $item->id_matricula)}}" data-toggle="modal" data-target="#exampleModalEdit" ><button type="button" class="btn btn-sm btn-warning" data-id id="b_editar">
-                                        <i class="fas fa-pencil-alt"></i></button></a>
-                                       
-                                    <button type="button" class="btn btn-sm btn-danger"
-                                        onclick="eliminarMat_Alerta({{$item->id_matricula}})">
-                                        <i class=" fas fa-trash"></i></button>
-    
-                            </td>
-                  
-                      
-                           
-                        </tr>
-                        @endforeach
-                    </tbody>
-                  </table>
-    
-    
-                 </div>
-                </div>
     
                 </div>
 </div> --}}
@@ -92,7 +50,7 @@
         @php
         $foto = $item->foto;
             if ($item->foto == '') {
-                $foto = '/storage/fotos/default.jpg';
+                $foto = '/storage/imagenes/default.jpg';
             }
         @endphp
 
@@ -120,6 +78,9 @@
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#holasas{{$item->id_matricula}}">
                             <i class="fa-solid fa-camera"></i>
                           </button> 
+
+                          <a href="{{route('pdf', $item->id_matricula)}}" ><button type="button" style="width: 200px;" class="btn btn-sm btn-secondary">
+                            <i class="fa-solid fa-file-pdf"></i></button></a>   
                           
                           <div class="modal fade" id="holasas{{$item->id_matricula}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">

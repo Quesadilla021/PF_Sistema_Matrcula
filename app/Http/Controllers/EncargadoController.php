@@ -17,8 +17,8 @@ class EncargadoController extends Controller
      */
     public function index()
     {
-        $encargados= Encargado::all();
-        return view('Admin.institucion.encargados', compact('encargados'));
+        $encargados= Auth::user()->encargados;
+        return view('Admin.institucion.encargados.encargados', compact('encargados'));
     }
 
     /**
@@ -28,8 +28,8 @@ class EncargadoController extends Controller
      */
     public function create()
     {
-        $estudiantes=Estudiante::all();
-        return view('Admin.institucion.insertar_encargado', compact('estudiantes'));
+        $estudiantes=Auth::user()->estudiantes;
+        return view('Admin.institucion.encargados.insertar_encargado', compact('estudiantes'));
     }
 
     /**
@@ -122,9 +122,9 @@ class EncargadoController extends Controller
     public function editar($id){
 
         $encargado = Encargado::find($id);
-        $estudiantes=Estudiante::all();
+        $estudiantes=Auth::user()->estudiantes;
 
-        return view('Admin.institucion.edit_encargado', compact('encargado', 'estudiantes'));
+        return view('Admin.institucion.encargados.edit_encargado', compact('encargado', 'estudiantes'));
     }
 
 }

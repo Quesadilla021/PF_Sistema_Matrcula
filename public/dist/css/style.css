@@ -417,8 +417,7 @@ font-weight:bold;
 }
 
 .grados{
-  margin-left: 420px;
-  margin-top: -20px;
+  
   border: 1px solid #148ca1; /*anchura, estilo y color borde*/
   padding: 10px; /*espacio alrededor texto*/
   background-color: #148ca1; /*color botón*/

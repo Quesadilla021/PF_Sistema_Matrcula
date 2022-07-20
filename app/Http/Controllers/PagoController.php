@@ -18,8 +18,8 @@ class PagoController extends Controller
      */
     public function index()
     {
-        $pagos= Pago::all();
-        return view('Admin.institucion.pago', compact('pagos'));
+        $pagos= Auth::user()->pagos;
+        return view('Admin.institucion.pagos.pago', compact('pagos'));
     }
 
     /**
@@ -29,8 +29,8 @@ class PagoController extends Controller
      */
     public function create()
     {
-        $matriculas = Matricula::all();
-        return view('Admin.institucion.insertar_pago', compact('matriculas'));
+        $matriculas = Auth::user()->matriculas;
+        return view('Admin.institucion.pagos.insertar_pago', compact('matriculas'));
     }
 
     /**
@@ -120,8 +120,8 @@ class PagoController extends Controller
 
     public function editar($id){
         $pago = Pago::find($id);
-        $matriculas = Matricula::all();
-        return view('Admin.institucion.edit_pago', compact('pago','matriculas'));
+        $matriculas = Auth::user()->matriculas;
+        return view('Admin.institucion.pagos.edit_pago', compact('pago','matriculas'));
     }
 
     public function updateComprobante(Request $request, $id)
