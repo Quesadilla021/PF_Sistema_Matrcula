@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MatriculaController;
@@ -23,7 +24,7 @@ use App\Http\Controllers\ReporteController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('inicioPrincipal');
 
 /* Route::get('/adminInstitucion', function () {
     return view('Admin Institucion.admin');
@@ -93,9 +94,7 @@ Route::get('/usuarios',[AdminController::class, 'show'])->name('usuariosRegistra
 Route::get('/adminInstitucion', [MatriculaController::class, 'show'])->name('indexAdmin');
 
 
-Route::get('/registrarse', function () {
-    return view('registroCuenta');
-});
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('registrarUsuario');
 
 Route::get('/loginC', function () {
     return view('loginCuenta');

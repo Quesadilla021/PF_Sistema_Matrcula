@@ -40,6 +40,10 @@ class HomeController extends Controller
             }     
             $usuario = User::find(Auth::user()->id_tenant);
             $usuario->primera_vez = 1;
+
+            $tempFecha=date('Y-m-d');
+            $usuario->fecha = $tempFecha;
+            $usuario->proximo_pago = date("Y-m-d",strtotime($tempFecha."+ 1 year"));
             $usuario->save();
 
             $matriculas = Auth::user()->matriculas;

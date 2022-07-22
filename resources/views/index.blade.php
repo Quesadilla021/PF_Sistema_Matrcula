@@ -899,7 +899,7 @@
           }).then((result) => {
             /* Read more about handling dismissals below */
             if (result.dismiss === Swal.DismissReason.timer) {
-              window.location.href = "http://127.0.0.1:8000/register";
+              window.location.href = "{{route('register')}}";
             }
           })
       }

@@ -11,8 +11,8 @@
 @section('contenidoAdministrador')
 
 <div class="table-responsive m-t-20">
-    <table id="example" class="table table-striped" style="width:100%">
-        <thead>
+    <table id="tablaUsuarios" class="table table-striped" style="width:100%">
+        <thead class="table-dark">
             <tr>
                 <th>Nombre</th>
                 <th>Email</th>

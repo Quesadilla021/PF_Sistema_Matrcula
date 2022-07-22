@@ -245,6 +245,14 @@
 
     </script>
 
+<script>
+
+    $(document).ready(function () {
+        $('#tablaUsuarios').DataTable();
+    });
+
+    </script>
+
 
 
 
