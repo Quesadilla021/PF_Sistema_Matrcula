@@ -14,7 +14,7 @@
 
 <div class="container-fluid">
 <div class="row">
-    
+<h4 class="card-title">Pagos Registrados</h4>   
 
 <hr>
 <div class="col-md-12">
@@ -22,7 +22,7 @@
              <div class="card">
                 <div class="card-header">
     
-                    <h4 class="card-title">Pagos Registrados</h4>
+                 
                                    
                     <div id="id_estudiante">
 
@@ -34,7 +34,7 @@
     
                 <div class="card-body">
                 <div class="table-responsive-lg">
-                    <table class="table table-striped" id="tablaPagos">
+                    <table class="table table-striped" id="tablaPagos" >
     
                     <thead class="table-dark">
                         <tr>

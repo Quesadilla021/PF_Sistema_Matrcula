@@ -30,7 +30,7 @@
 
                             <input type="number" style="width:80px" class="form-control mb-4 ml-4 " name="cupo" required placeholder="CUPO">
                        
-                            <button  class="mb-4 ml-3" id="b_regresar">Asignar</button>
+                            <button  class="mb-4 ml-3" id="b_asignar">Asignar</button>
 
 
                            

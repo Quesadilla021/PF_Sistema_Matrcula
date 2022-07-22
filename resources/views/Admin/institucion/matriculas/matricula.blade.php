@@ -17,13 +17,13 @@
     
 
 
+<h4 class="card-title">Matriculas Registradas</h4>
 <hr>
  <div class="col-md-12">
              
              <div class="card">
                 <div class="card-header">
     
-                    <h4 class="card-title">Matriculas Registradas</h4>
                           
                     <div id="id_estudiante">
 
