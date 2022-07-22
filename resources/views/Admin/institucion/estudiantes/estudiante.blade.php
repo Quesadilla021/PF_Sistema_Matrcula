@@ -14,7 +14,7 @@
 
 <div class="container-fluid">
 <div class="row">
-    
+<h4 class="card-title">Estudiantes Registrados</h4>  
 <hr>
 <div class="col-md-12">
 
@@ -23,7 +23,7 @@
              <div class="card">
                 <div class="card-header">
     
-                    <h4 class="card-title">Estudiantes Registrados</h4>
+         
                     <div id="id_estudiante">
                         <a href="{{route('create_estudiantes')}}" id="b_estudiante">+ Nuevo Estudiante</a>
                     </div>
