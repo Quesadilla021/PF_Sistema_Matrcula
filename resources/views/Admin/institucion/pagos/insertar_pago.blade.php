@@ -74,7 +74,6 @@
                                 <option selected>-Seleccione-</option>
                                 <option value="Efectivo">Efectivo</option>
                                 <option value="Transferencia">Transferencia</option>
-                                <option value="Tarjeta">Tarjeta</option>
                             </select>
                        
                       </div>

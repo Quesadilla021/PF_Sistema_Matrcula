@@ -45,7 +45,6 @@ class EstudianteController extends Controller
         $estudiante->cedula=$request->cedula;
         $estudiante->nombre=$request->nombre;
         $estudiante->apellidos=$request->apellidos;
-        $estudiante->telefono=$request->telefono;
         $estudiante->fecha_nacimiento=$request->fecha_nacimiento;
         $estudiante->enfermedad=$request->enfermedades;
         $estudiante->medicamentos=$request->medicamentos;
@@ -90,7 +89,6 @@ class EstudianteController extends Controller
         $estudiante->cedula=$request->cedula;
         $estudiante->nombre=$request->nombre;
         $estudiante->apellidos=$request->apellidos;
-        $estudiante->telefono=$request->telefono;
         $estudiante->fecha_nacimiento=$request->fecha_nacimiento;
         $estudiante->enfermedad=$request->enfermedades;
         $estudiante->medicamentos=$request->medicamentos;

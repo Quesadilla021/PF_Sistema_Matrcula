@@ -43,6 +43,11 @@ class User extends Authenticatable
         return $this->hasMany(Pago::class, 'id_tenant');
     }
 
+    public function grados()
+    {
+        return $this->hasMany(Grado::class, 'id_tenant');
+    }
+
 
 
     protected $fillable = [

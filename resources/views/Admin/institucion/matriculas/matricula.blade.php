@@ -50,7 +50,7 @@
         @php
         $foto = $item->foto;
             if ($item->foto == '') {
-                $foto = '/storage/imagenes/default.jpg';
+                $foto = '/imgs/default.jpg';
             }
         @endphp
 
@@ -58,12 +58,12 @@
             <div class="card" style="width: 16rem;">
                 <img src="{{$foto}}" class="card-img-top" style="width: 16rem; height: 16rem">
                 <div class="container mt-3">
-                    <h5 class="card-title">{{$item->estudiante->nombre}}</h5>
+                    <h5 class="card-title">{{$item->estudiante->nombre}} {{$item->estudiante->apellidos}}</h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><b>Encargado:</b>{{$item->encargado->nombre}}</li>
-                  <li class="list-group-item"><b>Grado:</b>{{$item->grado->nombre}}</li>
-                  <li class="list-group-item"><b>Fecha:</b>{{$item->fecha}}</li>
+                  <li class="list-group-item"><b>Encargado: </b>{{$item->encargado->nombre}} {{$item->encargado->apellidos}}</li>
+                  <li class="list-group-item"><b>Grado: </b>{{$item->grado->nombre}}</li>
+                  <li class="list-group-item"><b>Fecha: </b>{{$item->fecha}}</li>
                 </ul>
                 <div class="card-body">
                     <div class="d-grid gap-2">                     
@@ -134,61 +134,5 @@
 
 </div>
 
-
-@endsection
-
-@extends('Admin.parts.partsjs')
-@section('parteJS')
-    
-    <script>
-
-    var idSelect;
-
-    function eliminarMat_Alerta(id) {
-        idSelect = id;
-        console.log(idSelect);
-        Swal.fire({
-        title: 'Estas seguro?',
-        text: "Deseas borrar esta matricula?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Eliminar'
-
-        }).then((result) => {
-    if (result.isConfirmed) {
-        eliminarAJAX_Mat();
-
-        Swal.fire(
-        'Eliminado!',
-        'En breves notara los cambios.',
-        'success'
-        )
-        } 
-    })
-    }
-
-    function eliminarAJAX_Mat() {
-        $.ajax({
-            url: "/eliminarMat_"+idSelect,
-            /* type: 'POST', */
-            success: function(result) {
-                location.reload();
-                /* $('#tablaEncargados').DataTable().ajax.reload(); */ ///Revisar despues, por que no se quiere actualizar
-            }
-        });
-    }
-
-    </script>
-
-<script>
-
-    $(document).ready(function () {
-        $('#tablaMatriculas').DataTable();
-    });
-
-    </script>
-    
 
 @endsection

@@ -60,11 +60,6 @@
                           <input type="date" class="form-control mb-4 ml-2 " name="fecha_nacimiento" required>
                         </div>
 
-                        <div class="form-inline col-mb-5 px-2">
-                            <label class="form-label mb-4">Telefono</label>
-                            <input type="text" class="form-control mb-3 ml-5" name="telefono" required>
-                        </div>
-
                       <div class="form-inline col-mb-5 px-2 ">
                           <label class="form-label mb-4 ">Enfermedades</label>
                           <input type="text" class="form-control mb-4 ml-3" name="enfermedades">
@@ -124,7 +119,6 @@
         var nombre = $("input[name='nombre']").val();
         var apellidos = $("input[name='apellidos']").val();
         var fecha_nacimiento = $("input[name='fecha_nacimiento']").val();
-        var telefono = $("input[name='telefono']").val();
         var enfermedades = $("input[name='enfermedades']").val();
         var medicamentos = $("#medicamentos").val();
         /* var _token = $("input[name='token']").val(); */
@@ -138,7 +132,6 @@
                 nombre: nombre,
                 apellidos: apellidos,
                 fecha_nacimiento: fecha_nacimiento,
-                telefono: telefono,
                 enfermedades: enfermedades,
                 medicamentos: medicamentos,
                 "_token": $("meta[name='csrf-token']").attr("content")

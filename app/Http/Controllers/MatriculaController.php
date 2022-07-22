@@ -42,7 +42,7 @@ class MatriculaController extends Controller
     public function create(){
         $estudiantes= Auth::user()->estudiantes;
         $encargados= Auth::user()->encargados;
-        $grados= Grado::all();
+        $grados= Auth::user()->grados;
         return view('Admin.institucion.matriculas.insertar_matricula', compact('estudiantes', 'encargados', 'grados'));
     }
 
@@ -50,7 +50,7 @@ class MatriculaController extends Controller
         $matricula = Matricula::find($id);
         $estudiantes= Auth::user()->estudiantes;
         $encargados= Auth::user()->encargados;
-        $grados = Grado::all();
+        $grados = Auth::user()->grados;
         return view('Admin.institucion.matriculas.edit_matricula', compact('estudiantes', 'encargados', 'grados', 'matricula'));
     }
 
@@ -121,7 +121,7 @@ class MatriculaController extends Controller
     public function inicio()
 {
     $matriculas = Auth::user()->matriculas;
-    $grados = Grado::all();
+    $grados = Auth::user()->grados;
     return view('Admin.institucion.inicio', compact('matriculas', 'grados'));
 }
     

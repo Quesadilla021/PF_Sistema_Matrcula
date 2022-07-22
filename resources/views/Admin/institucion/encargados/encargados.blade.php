@@ -1,9 +1,5 @@
 @extends('Admin.plantilla')
 
-@section('contenido_titulo')
-   
-@endsection
-
 @section('titulo')
     Encargados
 @endsection
@@ -35,13 +31,12 @@
     
                     <thead class="table-dark">
                         <tr>
-                            <th>ESTUDIANTE</th>
+                            <th>NOMBRE COMPLETO</th>
                             <th>CEDULA</th>
-                            <th>NOMBRE</th>
-                            <th>APELLIDOS</th>
                             <th>F_NACIMIENTO</th>
-                            {{-- <th>TELEFONO</th> --}}
+                            <th>TELEFONO</th>
                             <th>DIRECCION</th>
+                            <th>ESTUDIANTE</th>
                           
                             <th>OPCIONES</th>
                          
@@ -52,15 +47,13 @@
                   @foreach ($encargados as $item)
                       
                         <tr>
-                   
-                            <td>{{$item->estudiante->nombre}}</td>
+                            <td>{{$item->nombre}} {{$item->apellidos}}</td>
                             <td>{{$item->cedula}}</td>
-                            <td>{{$item->nombre}}</td>
-                            <td>{{$item->apellidos}}</td>
                             <td>{{$item->fecha_nacimiento}}</td>
-                            {{-- <td>{{$item->telefono}}</td> --}}
+                            <td>{{$item->telefono}}</td>
                             <td>{{$item->direccion}}</td>
-    
+                            <td>{{$item->estudiante->nombre}} {{$item->estudiante->apellidos}}</td>
+                            
     
                             <td>
                                 {{-- <form id="eliminarEstudiante" method="POST"> --}}
@@ -88,60 +81,10 @@
 </div>
 
 </div>
+</div>
 
 
-@endsection
 
-@extends('Admin.parts.partsjs')
-@section('parteJS')
-<script>
-    var idSelect;
-
-    function eliminarEnc_Alerta(id) {
-        idSelect = id;
-        console.log(idSelect);
-        Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-
-        }).then((result) => {
-    if (result.isConfirmed) {
-        eliminarAJAX_Enc();
-
-        Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
-        'success'
-        )
-        } 
-      })
-    }
-
-    function eliminarAJAX_Enc() {
-        $.ajax({
-            url: "/eliminarEnc_"+idSelect,
-            /* type: 'POST', */
-            success: function(result) {
-                location.reload();
-                /* $('#tablaEncargados').DataTable().ajax.reload(); */ ///Revisar despues, por que no se quiere actualizar
-            }
-        });
-    }
-</script>
-
-<script>
-
-    $(document).ready(function () {
-        $('#tablaEncargados').DataTable();
-    });
-
-    </script>
-    
 @endsection
 
 

@@ -18,8 +18,6 @@
 <hr>
 <div class="container">
 
-
-
     <div class="row">
 
     <div class="col-1"></div>
@@ -28,7 +26,7 @@
 <div class="card">
                     <div class="card-header">
 
-                        <h4 class="card-title">Formulario de Estudiantes</h4>
+                        <h4 class="card-title">Formulario de Encargados</h4>
                                     
                     </div>
 
@@ -70,6 +68,11 @@
                       <div class="form-inline col-mb-5 px-2">
                           <label class="form-label mb-4 ">Fecha de Nacimiento</label>
                           <input type="date" class="form-control mb-4 ml-2 " name="fecha_nacimiento" required>
+                        </div>
+
+                        <div class="form-inline col-mb-5 px-2">
+                            <label class="form-label mb-4">Telefono</label>
+                            <input type="text" class="form-control mb-3 ml-5" name="telefono" required>
                         </div>
 
                       <div class="form-inline col-mb-5 px-2 ">
@@ -121,6 +124,7 @@
         var apellidos = $("input[name='apellidos']").val();
         var fecha_nacimiento = $("input[name='fecha_nacimiento']").val();
         var direccion = $("input[name='direccion']").val();
+        var telefono = $("input[name='telefono']").val();
         var estudiantes = $("#estudiantes").val();
     
         $.ajax({
@@ -133,6 +137,7 @@
                 apellidos: apellidos,
                 fecha_nacimiento: fecha_nacimiento,
                 direccion: direccion,
+                telefono: telefono,
                 estudiantes: estudiantes,
                 "_token": $("meta[name='csrf-token']").attr("content")
             },
